@@ -86,7 +86,7 @@ size: 0
 delay: 0
 canAttackMaxAngle:181
 idleDir: -90
-shoot_sound:ROOT:/通用音效/rocket.ogg
+shoot_sound:ROOT:/ASSETS/sounds/rocket.ogg
 shoot_sound_vol:0.46
 [turret_隐藏炮塔2]
 @copyFromSection:turret_隐藏炮塔1
