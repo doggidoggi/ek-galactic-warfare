@@ -1,0 +1,192 @@
+
+
+[template_shared]
+layer: beforeBody
+onlyWhileAlive: true
+yOffsetAbsolute: ${core.radius}+${core.radius/79*27}
+alwayStartDirAtZero: true
+imageScale: ${core.radius/79}
+onlyWhenSelectedByAnyPlayer: true
+onlyWithZoomLevelOrMore: 0.4
+onlyOnNonPreview: true
+
+[template_shared2]
+onlyWhenSelectedByAnyPlayer: false
+isVisible: if self.hp < self.maxHp
+
+[decal_statsBar.back]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.t${core.techLevel}.png
+
+[decal_lifeGauge.back]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.lifeGauge_back.png
+
+[decal_lifeGauge.bar]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.lifeGauge_bar.png
+imageScaleX: (self.hp/self.maxHp)
+xOffsetAbsolute: ${core.radius/79}*-71
+teamColors: true
+alpha: rnd(0.7,1)
+
+[decal_lifeGauge.front]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.lifeGauge_front.png
+
+[decal_lifeGauge.number]
+@define numberId: 1
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.lifeGauge_numbers${numberId}.png
+frame_width: 158
+frame_height: 27
+alpha: rnd(0.7,1)
+frame: int(self.hp)%10
+
+[decal_lifeGauge.2number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.1)%10
+@define numberId: 2
+
+[decal_lifeGauge.3number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.01)%10
+@define numberId: 3
+
+[decal_lifeGauge.4number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.001)%10
+@define numberId: 4
+
+[decal_lifeGauge.5number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.0001)%10
+@define numberId: 5
+
+[decal_lifeGauge.6number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.00001)%10
+@define numberId: 6
+
+[decal_lifeGauge.7number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.000001)%10
+@define numberId: 7
+
+[decal_lifeGauge.8number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.0000001)%10
+@define numberId: 8
+
+[decal_lifeGauge.9number]
+@copyFromSection: decal_lifeGauge.number,template_shared
+frame: int(self.hp*0.00000001)%10
+@define numberId: 9
+
+[decal_powerGauge.back]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.powerGauge_back.png
+isVisible: if self.maxEnergy > 0 or self.maxShield > 0
+
+[decal_powerGauge.bar]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.powerGauge_bar.png
+imageScaleX: select(self.maxShield>0,self.shield/self.maxShield,self.energy/self.maxEnergy)
+xOffsetAbsolute: ${core.radius/79}*-71
+isVisible: if self.maxEnergy > 0 or self.maxShield > 0
+alpha: rnd(0.7,1)
+
+[decal_powerGauge.front]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.powerGauge_front.png
+isVisible: if self.maxEnergy > 0 or self.maxShield > 0
+
+[decal_teamIndicator_own]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.teamIndicator_own.png
+onlyTeam: own
+alpha: rnd(0.7,1)
+
+[decal_teamIndicator_ally]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.teamIndicator_ally.png
+onlyTeam: allyNotOwn
+alpha: rnd(0.7,1)
+
+[decal_teamIndicator_enemy]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.teamIndicator_enemy.png
+onlyTeam: enemy
+alpha: rnd(0.7,1)
+
+[decal_teamIndicator_cover]
+@copyFromSection: template_shared
+image: ROOT:shared/ui/ui.default_statsBar.teamIndicator_cover.png
+
+[decal_statsBar.back2]
+@copyFromSection: decal_statsBar.back,template_shared2
+
+[decal_lifeGauge.back2]
+@copyFromSection: decal_lifeGauge.back,template_shared2
+
+[decal_lifeGauge.bar2]
+@copyFromSection: decal_lifeGauge.bar,template_shared2
+
+[decal_lifeGauge.front2]
+@copyFromSection: decal_lifeGauge.front,template_shared2
+
+[decal_lifeGauge.number2]
+@copyFromSection: decal_lifeGauge.number,template_shared2
+
+[decal_lifeGauge.2number2]
+@copyFromSection: decal_lifeGauge.2number,template_shared2
+
+[decal_lifeGauge.3number2]
+@copyFromSection: decal_lifeGauge.3number,template_shared2
+
+[decal_lifeGauge.4number2]
+@copyFromSection: decal_lifeGauge.4number,template_shared2
+
+[decal_lifeGauge.5number2]
+@copyFromSection: decal_lifeGauge.5number,template_shared2
+
+[decal_lifeGauge.6number2]
+@copyFromSection: decal_lifeGauge.6number,template_shared2
+
+[decal_lifeGauge.7number2]
+@copyFromSection: decal_lifeGauge.7number,template_shared2
+
+[decal_lifeGauge.8number2]
+@copyFromSection: decal_lifeGauge.8number,template_shared2
+
+[decal_lifeGauge.9number2]
+@copyFromSection: decal_lifeGauge.9number,template_shared2
+
+[decal_powerGauge.back2]
+@copyFromSection: decal_powerGauge.back,template_shared2
+isVisible: if self.maxEnergy > 0 and self.energy<self.maxEnergy or self.maxShield > 0 and self.shield<self.maxShield or self.hp < self.maxHp and self.maxEnergy > 0 or self.hp < self.maxHp and self.maxShield > 0
+
+[decal_powerGauge.bar2]
+@copyFromSection: decal_powerGauge.bar,template_shared2
+isVisible: if self.maxEnergy > 0 and self.energy<self.maxEnergy or self.maxShield > 0 and self.shield<self.maxShield or self.hp < self.maxHp and self.maxEnergy > 0 or self.hp < self.maxHp and self.maxShield > 0
+
+[decal_powerGauge.front2]
+@copyFromSection: decal_powerGauge.front,template_shared2
+isVisible: if self.maxEnergy > 0 and self.energy<self.maxEnergy or self.maxShield > 0 and self.shield<self.maxShield or self.hp < self.maxHp and self.maxEnergy > 0 or self.hp < self.maxHp and self.maxShield > 0
+
+[decal_teamIndicator_own2]
+@copyFromSection: decal_teamIndicator_own,template_shared2
+
+[decal_teamIndicator_ally2]
+@copyFromSection: decal_teamIndicator_ally,template_shared2
+
+[decal_teamIndicator_enemy2]
+@copyFromSection: decal_teamIndicator_enemy,template_shared2
+
+[decal_teamIndicator_cover2]
+@copyFromSection: decal_teamIndicator_cover,template_shared2
+
+[graphics]
+showHealthBar: false
+showShieldBar: false
+showEnergyBar: false

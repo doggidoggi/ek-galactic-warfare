@@ -1,0 +1,40 @@
+[core]
+name:infantryTemplate
+soundOnDeath:ROOT:ASSETS/sounds/infantry_death.ogg
+tags:infantry
+mass:3000
+isBio:true
+
+[resource_zombie]
+displayName:isZombie
+hidden:true
+displayRoundedDown:false
+displayWhenZero:true
+[hiddenAction_zombie]
+autoTrigger:if self.resource(greaterThan=3,type='zombie')
+resourceAmount:zombie
+resourceAmount_setValue:3
+[hiddenAction_convertToZombie]
+autoTrigger:if self.resource(greaterThan=0,type='zombie') or rnd(1, 1000) == 1
+convertTo:EkZombieMeleeSmall
+switchToAggressiveTeam:true
+
+[hiddenAction_checkForBioCloud]
+autoTrigger:if nearestUnit(withinRange=280,withTag="BIO_WEAPON") != nullUnit
+convertTo:EkZombieMeleeSmall
+switchToAggressiveTeam:true
+[hiddenAction_checkForCommander]
+autoTrigger:if nearestUnit(withinRange=480,withTag="COMMANDER_BOOST",relation="ally") != nullUnit and not self.tags(includes="BOOSTED")
+setUnitStats:moveSpeed+=0.20
+temporarilyAddTags:BOOSTED
+[hiddenAction_checkForCommanderFar]
+autoTrigger:if nearestUnit(withinRange=480,withTag="COMMANDER_BOOST",relation="ally") == nullUnit or (self.tags(includes="COMMANDER_BOOST") and not (nearestUnit(withinRange=480,withTag="COMMANDER_BOOST") == nullUnit))
+resetUnitStats:true
+temporarilyRemoveTags:BOOSTED
+[attack]
+canAttack:true
+canAttackFlyingUnits:false
+canAttackLandUnits:true
+canAttackUnderwaterUnits:false
+[movement]
+movementType:LAND

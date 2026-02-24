@@ -1,0 +1,7 @@
+[core]
+isBio:true
+autoTriggerCooldownTime: 2s
+tags:BIO
+[hiddenAction_checkForChemicalCloud]
+autoTrigger:if nearestUnit(withinRange=280,withTag="CHEMICAL_WEAPON") != nullUnit
+addResources:hp=-500

@@ -1,0 +1,148 @@
+[core]
+copyFrom:canBurned.template
+maxTransportingUnits:1
+transportUnitsRequireTag:infantry
+stayNeutral:true
+transportUnitsKillOnDeath:false
+whileNeutralTransportAnyTeam:true
+whileNeutralConvertToTransportedTeam:true
+transportUnitsCanUnloadUnits:if not self.isControlledByAi() or self.hp() < 5 or self.resource.onFire >= 10
+transportUnitsAddUnloadOption:true
+fogOfWarSightRange:15
+
+[graphics]
+showQueueBar:false
+disableLowHpFire:true
+disableLowHpSmoke:true
+movementEffect:CUSTOM:tankTraceSmall
+movementEffectReverse:CUSTOM:tankTraceSmall
+movementEffectRate:6
+
+[effect_tankTraceSmall]
+life:200
+image:ROOT:ASSETS/images/graphicsEffects/tankTraceSmall.png
+attachedToUnit:false
+drawUnderUnits:true
+scaleFrom:${core.radius/53}
+scaleTo:${core.radius/53}
+yOffsetRelative:${-core.radius}
+createWhenZoomedOut:false
+showInFog:true
+
+[ai]
+useAsTransport:false
+
+[attack]
+canOnlyAttackUnitsWithoutTags:hiding, armour, invisible
+canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) or self.transportingCount() > 1) and self.hp() > 1 and not self.tags(includes='crewShocked')
+
+#ARMOUR
+    [resource_unitSpeed]
+	hidden:true
+
+    [resource_totalDamage]
+	hidden:true
+
+    [resource_crewShocked]
+	hidden:true
+
+    [hiddenAction_saveSpeed]
+	autoTriggerOnEvent:created
+	setResourcesWithLogic:unitSpeed=self.maxMoveSpeed()
+
+    [hiddenAction_vehicleEmpty]
+	autoTrigger:if self.transportingCount() == 0
+	clearActiveWaypoint:true
+	switchToNeutralTeam:true
+	
+	[hiddenAction_crewShocked]
+	autoTrigger:if self.resource.crewShocked >= 1 and not self.tags(includes='crewShocked')
+	setUnitStats:moveSpeed=0,maxTurnSpeed=0,fogOfWarSightRange=0
+	temporarilyAddTags:crewShocked
+	alsoQueueAction:resetcrewShocked
+	
+	[hiddenAction_resetcrewShocked]
+	autoTrigger:false
+	buildSpeed:4s
+	setUnitStats:fogOfWarSightRange=${core.fogOfWarSightRange}
+	alsoTriggerAction:resetcrewShocked_moveSpeed
+	temporarilyRemoveTags:crewShocked_moveSpeed
+	setResourcesWithLogic:crewShocked=0
+	
+	[hiddenAction_resetcrewShocked_moveSpeed]
+	setUnitStats:maxTurnSpeed=${movement.maxTurnSpeed}
+	alsoTriggerAction:resetcrewShocked_moveSpeed_2
+	
+	[hiddenAction_resetcrewShocked_moveSpeed_2]
+	setUnitStats:moveSpeed=self.resource.unitSpeed
+
+#CREW
+    [resource_damageTaked]
+	hidden:true
+	
+	[resource_lastHp]
+	hidden:true
+	
+	[resource_crewmanDied]
+	hidden:true
+	
+	[resource_normalCrewmanCount]
+	hidden:true
+	
+	[hiddenAction_addCrew]
+	setResourcesWithLogic:normalCrewmanCount = self.transportingCount()
+	
+	[hiddenAction_selfRepair]
+	autoTriggerCheckRate:every8frames
+	autoTrigger:if self.transportingCount() >= 2
+	setUnitStats:selfRegenRate=0.001
+	
+	[hiddenAction_selfRepairStop]
+	autoTriggerCheckRate:every8frames
+	autoTrigger:if self.transportingCount() < 2
+	setUnitStats:selfRegenRate=0
+	
+	[hiddenAction_setHpAndDamage]
+	autoTrigger: if self.timeAlive() < 2
+	setResourcesWithLogic:lastHp = self.hp()
+
+	[hiddenAction_calculateDamage]
+	autoTrigger:if self.hasTakenDamage(withinSeconds=1) and self.transportingCount() > 0
+	setResourcesWithLogic:damageTaked = self.resource.lastHp - self.hp(),crewmanDied = int(self.resource.damageTaked/30)
+	alsoQueueAction:updateLastHealth
+	
+	[hiddenAction_updateLastHealth]
+	autoTrigger:if not self.hasTakenDamage(withinSeconds=1)
+	buildSpeed:1s
+	setResourcesWithLogic:lastHp = self.hp(),damageTaked = 0,crewmanDied = 0
+	
+	[hiddenAction_vehicleEmpty]
+	autoTrigger:if self.transportingCount() == 0
+	clearActiveWaypoint:true
+	switchToNeutralTeam:true
+
+	[hiddenAction_crewKilled_1]
+	autoTrigger:if self.hasTakenDamage(withinSeconds=0.5) and self.resource.crewmanDied == 1 or (self.resource.damageTaked > 10 and self.resource.damageTaked < 30 and rnd(1,10) > 7)
+	deleteNumUnitsFromTransport:1
+	setResourcesWithLogic:lastHp = self.hp(), damageTaked = 0, crewmanDied = 0
+	
+	[hiddenAction_crewKilled_2]
+	@copyFromSection:hiddenAction_crewKilled_1
+	autoTrigger:if self.hasTakenDamage(withinSeconds=0.5) and self.resource.crewmanDied == 2
+	deleteNumUnitsFromTransport:2
+	
+	[hiddenAction_crewKilled_3]
+	@copyFromSection:hiddenAction_crewKilled_1
+	autoTrigger:if self.hasTakenDamage(withinSeconds=0.5) and self.resource.crewmanDied == 3
+	deleteNumUnitsFromTransport:3
+	
+	[hiddenAction_crewKilled_4]
+	@copyFromSection:hiddenAction_crewKilled_1
+	autoTrigger:if self.hasTakenDamage(withinSeconds=0.5) and self.resource.crewmanDied == 4
+	deleteNumUnitsFromTransport:4
+
+	[hiddenAction_crewKilled_5]
+	@copyFromSection:hiddenAction_crewKilled_1
+	autoTrigger:if self.hasTakenDamage(withinSeconds=0.5) and self.resource.crewmanDied > 4
+	deleteNumUnitsFromTransport:5
+

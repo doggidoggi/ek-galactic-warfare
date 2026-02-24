@@ -1,0 +1,41 @@
+[effect_smoke]
+#priority:high
+frameIndex: 0
+stripIndex: smoke_black
+spawnChance: 0.6
+life:90
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+fadeInTime:15
+scaleFrom: 0.3
+scaleTo: 0.8
+alpha:0.8
+drawUnderUnits:false
+liveAfterAttachedDies: false
+hSpeed:0.5
+dirOffsetRandom:180
+atmospheric: true
+
+[effect_gunSmoke]
+#priority:high
+frameIndex: 0
+stripIndex: smoke_black
+spawnChance: 0.9
+life:90
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+fadeInTime:15
+scaleFrom: 0.3
+scaleTo:0.7
+alpha:1.5
+drawUnderUnits:false
+liveAfterAttachedDies: true
+hSpeed:0.2
+dirOffsetRandom:180
+ySpeedRelative:0.1
+ySpeedRelativeRandom:0.05
+atmospheric: true

@@ -1,0 +1,37 @@
+
+[core]
+copyFrom: decalWave.template
+
+[decal_waveFront2]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.166
+[decal_waveFront3]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.333
+[decal_waveFront4]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.5
+[decal_waveFront5]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.667
+[decal_waveFront6]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.834
+imageScaleX: ${-1*decal_waveFront.imageScaleX}
+
+[decal_waveBack2]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.166
+[decal_waveBack3]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.333
+[decal_waveBack4]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.5
+[decal_waveBack5]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.667
+[decal_waveBack6]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.834
+imageScaleX: ${-1*decal_waveBack.imageScaleX}

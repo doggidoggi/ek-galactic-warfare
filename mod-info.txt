@@ -1,0 +1,11 @@
+[mod]
+title:EK 0.13.0.2 [FIX] \ 24.02.2025
+description:Межгалактическая война в руинах империй. Пять фракций — Улей жуков, Империя Восходящего Солнца, ОЗД, Банановая Империя и Киберстан — сражаются за власть и выживание против ксеноморфов, пожирающих миры. Объедините всех или смотрите, как всё гибнет.
+thumbnail:mod-icon.png
+tags:units,turrets,infantry,experimentals
+minVersion:v1.15p11
+[music]
+whenUsingUnitsFromThisMod_playExclusively: true
+sourceFolder:Music
+[maps]
+sourceFolder:maps/addExtraMapsForPath:ture

@@ -1,0 +1,76 @@
+[core]
+name:EkTestLaserBa
+price:0
+maxHp:1
+mass:0
+radius:0
+tags:EkTestLaserBa
+showInEditor:false
+isUnselectable:true
+disableAllUnitCollisions:true
+canNotBeDirectlyAttacked:true
+canNotBeDamaged:true
+explodeOnDeath:false
+hideScorchMark:true
+showOnMinimap:false
+
+[attachment_laser]
+x:0
+y:0
+idleDir:0
+lockLegMovement:true
+keepAliveWhenParentDies:false
+canBeAttackedAndDamaged:false
+isUnselectable:true
+prioritizeParentsMainTarget:true
+alwaysAllowedToAttackParentsMainTarget:false
+canAttack:true
+lockRotation:true
+createIncompleteIfParentIs:false
+
+[attachment_laserU1]
+@copyFromSection:attachment_laser
+onCreateSpawnUnitOf: EkTestLaserB
+x: -205
+y: -212
+alwaysAllowedToAttackParentsMainTarget:true
+
+[attachment_laserU2]
+@copyFromSection:attachment_laser
+onCreateSpawnUnitOf: EkTestLaserB
+x: 205
+y: -212
+alwaysAllowedToAttackParentsMainTarget:true
+
+[graphics]
+image:SHARED:blank.png
+
+[attack]
+canAttack:true
+canAttackFlyingUnits:true
+canAttackLandUnits:true
+canAttackUnderwaterUnits:true
+turretSize:1
+turretTurnSpeed:99
+maxAttackRange:1000
+shootDelay:240
+
+[turret_1]
+invisible:true
+x:0
+y:0
+projectile:1
+aimOffsetSpread:0
+turnSpeed:0
+canAttackMaxAngle:30
+
+[projectile_1]
+life:0
+speed:0
+image:SHARED:blank.png
+deflectionPower:-1
+areaDamage:0
+areaRadius:0
+
+[movement]
+movementType:NONE

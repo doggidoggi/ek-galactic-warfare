@@ -1,0 +1,27 @@
+[resource_onFire]
+hidden:true
+
+[hiddenAction_attackedByFire]
+autoTriggerCheckRate:every4frames
+autoTrigger:if numberOfUnitsInAllTeams(withTag='fire',withinRange=30) > 0
+addResources:onFire=1.5
+
+[hiddenAction_attackedByMolotov]
+autoTriggerCheckRate:every4frames
+autoTrigger:if numberOfUnitsInAllTeams(withTag='molotov',withinRange=30) > 0
+addResources:onFire=0.5
+
+[hiddenAction_veryHot]
+autoTriggerCheckRate:every4frames
+autoTrigger:if self.resource.onFire >= 25
+setUnitStats:hp-=2
+
+[hiddenAction_escape]
+autoTriggerCheckRate:every4frames
+autoTrigger:if self.resource.onFire >= 10
+startUnloadingTransport:true
+
+[hiddenAction_cold]
+autoTriggerCheckRate:every4frames
+autoTrigger:if numberOfUnitsInAllTeams(withTag='fire',withinRange=30) == 0 and numberOfUnitsInAllTeams(withTag='molotov',withinRange=30) == 0 and self.resource.onFire > 0
+addResources:onFire=-0.5
