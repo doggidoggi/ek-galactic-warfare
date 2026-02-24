@@ -62,18 +62,6 @@ autoTriggerCheckRate:everyFrame
 @global tech_ballistic1: techBallisticMissiles1
 @global tech_ballistic2: techBallisticMissiles2
 
-[hiddenAction_boostProd1]
-autoTrigger:if self.globalTeamTags(includes="${tech_nano1}")
-setUnitStats:nanoFactorySpeed=1.25
-
-[hiddenAction_boostProd2]
-autoTrigger:if self.globalTeamTags(includes="${tech_nano2}")
-setUnitStats:nanoFactorySpeed=2.5
-
-[hiddenAction_boostProd3]
-autoTrigger:if self.globalTeamTags(includes="${tech_nano3}")
-setUnitStats:nanoFactorySpeed=3.5
-
 [template_buildingUpgrade]
 displayType:upgrade
 pos:-1000
