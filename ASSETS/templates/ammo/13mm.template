@@ -1,0 +1,13 @@
+[core]
+copyFrom:ammo.template
+
+[projectile_13mm]
+@copyFromSection:template_ammo
+image:ROOT:ASSETS/projectiles/tracer_shot_small1.png
+spawnProjectilesOnExplode:13mm_damage(yOffsetRelative=-20)
+explodeEffect:none
+
+[projectile_13mm_damage]
+@copyFromSection:template_damage_ammo
+explodeEffect:none 
+spawnUnit:13mm

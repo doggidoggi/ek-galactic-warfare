@@ -2,7 +2,7 @@
 name:infantryTemplate
 soundOnDeath:ROOT:ASSETS/sounds/infantry_death.ogg
 tags:infantry
-mass:3000
+mass:10
 isBio:true
 
 [resource_zombie]

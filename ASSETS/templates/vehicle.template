@@ -9,6 +9,10 @@ whileNeutralConvertToTransportedTeam:true
 transportUnitsCanUnloadUnits:if not self.isControlledByAi() or self.hp() < 5 or self.resource.onFire >= 10
 transportUnitsAddUnloadOption:true
 fogOfWarSightRange:15
+maxTransportingUnits:3
+energyMax:3
+energyRegen:0.006
+energyNeedsToRechargeToFull:true
 
 [graphics]
 showQueueBar:false

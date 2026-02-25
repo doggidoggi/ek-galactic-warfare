@@ -27,7 +27,7 @@ playSoundAtUnit:ROOT:ASSETS/sounds/hyperjump_enter.wav
 
 [hiddenAction_blink2]
 whenBuilding_playAnimation:blink
-buildSpeed:${1/225}
+buildSpeed:3.7s
 tags:blinking
 highPriorityQueue:true
 fireTurretXAtGround:blink
@@ -83,7 +83,7 @@ scaleFrom:3.8
 scaleTo:1.0
 alpha:0.8
 drawUnderUnits:false
-alsoPlaySound:ROOT:ASSETS/sounds/hyperjump_exit.wav
+alsoPlaySound:ROOT:ASSETS/sounds/hyperjump_exit2.wav
 
 [effect_blinkGlow]
 priority:high

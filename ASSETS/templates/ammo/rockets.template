@@ -1,0 +1,10 @@
+[core]
+copyFrom:ammo.template
+
+[projectile_rocket130mm]
+@copyFromSection:template_rocket
+spawnProjectilesOnExplode:rocket130mm_damage(yOffsetRelative=-20)
+
+[projectile_rocket130mm_damage]
+@copyFromSection:template_damage_ammo
+spawnUnit:130mm
