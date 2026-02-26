@@ -59,7 +59,7 @@ speed:1
 targetGround:true
 deflectionPower:-1
 shouldRevealFog:true
-explodeEffect:CUSTOM:blinkFlash,CUSTOM:blinkGlow
+explodeEffect:CUSTOM:blinkFlash,CUSTOM:blinkGlow,CUSTOM:playSound
 effectOnCreate:CUSTOM:blinkGlow
 
 [projectile_blinking]
@@ -83,7 +83,11 @@ scaleFrom:3.8
 scaleTo:1.0
 alpha:0.8
 drawUnderUnits:false
-alsoPlaySound:ROOT:ASSETS/sounds/hyperjump_exit2.wav
+
+[effect_playSound]
+life:0
+priority:critical
+alsoPlaySound:ROOT:ASSETS/sounds/hyperjump_exit1.wav
 
 [effect_blinkGlow]
 priority:high
