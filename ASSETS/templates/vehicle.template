@@ -13,6 +13,7 @@ maxTransportingUnits:3
 energyMax:3
 energyRegen:0.006
 energyNeedsToRechargeToFull:true
+disableDeathOnZeroHp:true
 
 [graphics]
 showQueueBar:false
@@ -40,7 +41,7 @@ useAsTransport:false
 canOnlyAttackUnitsWithoutTags:hiding, armour, invisible
 canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) or self.transportingCount() > 1) and self.hp() > 1 and not self.tags(includes='crewShocked')
 
-#ARMOUR
+#CREW SHOCK
     [resource_unitSpeed]
 	hidden:true
 
@@ -150,3 +151,30 @@ canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) o
 	autoTrigger:if self.hasTakenDamage(withinSeconds=0.5) and self.resource.crewmanDied > 4
 	deleteNumUnitsFromTransport:5
 
+#DEATH
+
+	[hiddenAction_checkDead]
+	autoTrigger:if self.hp() < 5 or self.hasTakenDamage(withinSeconds=1) and self.transportingCount() == 0
+	setUnitStats:hp=-1,moveSpeed=0
+	startUnloadingTransport:true
+	clearActiveWaypoint:true
+	temporarilyAddTags:dead
+	spawnEffects:smoke*2
+
+	[effect_smoke]
+	life: 300
+	color:black
+	fadeInTime:80
+	xOffsetRelative:0
+	yOffsetRelative:0
+	attachedToUnit: false
+	alpha: 0.5
+	scaleFrom:0.2
+	scaleTo: 2
+	xSpeedRelativeRandom: 0.08
+	ySpeedRelativeRandom: 0.08
+	hSpeed: 0.2
+	image: ROOT:ASSETS/graphicsEffects/smoke.png
+	priority: low
+	drawUnderUnits:false
+	atmospheric:true
