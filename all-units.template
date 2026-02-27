@@ -90,7 +90,7 @@ autoTriggerCheckRate:everyFrame
     text: Предыстория
 
     [template_commonEffects]
-    
+
 #GLOBAL RESOURCES
     [global_resource_tech]
     displayName:Технологические очки
@@ -100,7 +100,7 @@ autoTriggerCheckRate:everyFrame
     iconImageUseInText: true
     displayColorUseInText: true
     displayDigitGrouping: space
-    displayWhenZero:true
+    displayWhenZero:false
 
     [global_resource_experimental]
     displayName:Энергетические сплавы
@@ -110,7 +110,7 @@ autoTriggerCheckRate:everyFrame
     iconImageUseInText: true
     displayColorUseInText: true
     displayDigitGrouping: space
-    displayWhenZero:true
+    displayWhenZero:false
 
     [global_resource_crystalline]
     displayName:Кристаллин
@@ -120,7 +120,7 @@ autoTriggerCheckRate:everyFrame
     iconImageUseInText: true
     displayDigitGrouping: space
     displayColorUseInText: true
-    displayWhenZero:true
+    displayWhenZero:false
 
     [global_resource_electricity]
     displayName:Энергокредиты
@@ -129,7 +129,7 @@ autoTriggerCheckRate:everyFrame
     iconImage:ROOT:ASSETS/ui/resource_icons/energy.png
     displayDigitGrouping: space
     displayColorUseInText: true
-    displayWhenZero:true
+    displayWhenZero:false
 
     #ORBITAL SIGNAL RESOURCES
 
