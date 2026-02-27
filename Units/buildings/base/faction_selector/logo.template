@@ -8,7 +8,6 @@ radius: 10
 fogOfWarSightRange:0
 isBuilding:true
 isUnrepairableUnit: true
-canNotBeDirectlyAttacked:true
 ignoreInUnitCapCalculation:true
 hideScorchMark:true
 disableDeathOnZeroHp:true

@@ -6,166 +6,196 @@ autoTriggerCooldownTime_allowDangerousHighCPU:true
 logIfCreditResourceUsed: true
 autoTriggerCheckRate:everyFrame
 
-@global name_nano1: Нанорепликация I
-@global name_nano2: Нанорепликация II
-@global name_nano3: Нанорепликация III
-@global name_prod1: Продуктивность I
-@global name_prod2: Продуктивность II
-@global name_prod3: Продуктивность III
-@global name_stealth: Стелс-технологии
-@global name_hyperdrive: Гипердрайв
-@global name_infantry1: Пехота I
-@global name_infantry2: Пехота II
-@global name_infantry3: Пехота III
-@global name_tanks1: Танки I
-@global name_tanks2: Танки II
-@global name_tanks3: Танки III
-@global name_mech: Тяжелые мехи
-@global name_aircraft1: Авиация I
-@global name_aircraft2: Авиация II
-@global name_aircraft3: Авиация III
-@global name_ships1: Корабли I
-@global name_ships2: Корабли II
-@global name_economy1: Экономика I
-@global name_economy2: Экономика II
-@global name_defence1: Оборона I
-@global name_defence2: Оборона II
-@global name_satellite: Спутники
-@global name_ballistic1: Баллистические ракеты I
-@global name_ballistic2: Баллистические ракеты II
+#GLOBAL VARIABLES
+    #TECH VARIABLES
+        #TECH NAMES
 
-@global tech_nano1: techNano1
-@global tech_nano2: techNano2
-@global tech_nano3: techNano3
-@global tech_prod1: techProd1
-@global tech_prod2: techProd2
-@global tech_prod3: techProd3
-@global tech_stealth: techStealth
-@global tech_hyperdrive: techHyperdrive
-@global tech_infantry1: techInfantry1
-@global tech_infantry2: techInfantry2
-@global tech_infantry3: techInfantry3
-@global tech_tanks1: techTanks1
-@global tech_tanks2: techTanks2
-@global tech_tanks3: techTanks3
-@global tech_mech: mechTech
-@global tech_aircraft1: techAircraft1
-@global tech_aircraft2: techAircraft2
-@global tech_aircraft3: techAircraft3
-@global tech_ships1: techShips1
-@global tech_ships2: techShips2
-@global tech_economy1: techEconomy1
-@global tech_economy2: techEconomy2
-@global tech_defence1: techDefence1
-@global tech_defence2: techDefence2
-@global tech_satellite: satelliteTech
-@global tech_ballistic1: techBallisticMissiles1
-@global tech_ballistic2: techBallisticMissiles2
+            @global name_nano1: Нанорепликация I
+            @global name_nano2: Нанорепликация II
+            @global name_nano3: Нанорепликация III
+            @global name_prod1: Продуктивность I
+            @global name_prod2: Продуктивность II
+            @global name_prod3: Продуктивность III
+            @global name_stealth: Стелс-технологии
+            @global name_hyperdrive: Гипердрайв
+            @global name_infantry1: Пехота I
+            @global name_infantry2: Пехота II
+            @global name_infantry3: Пехота III
+            @global name_tanks1: Танки I
+            @global name_tanks2: Танки II
+            @global name_tanks3: Танки III
+            @global name_mech: Тяжелые мехи
+            @global name_aircraft1: Авиация I
+            @global name_aircraft2: Авиация II
+            @global name_aircraft3: Авиация III
+            @global name_ships1: Корабли I
+            @global name_ships2: Корабли II
+            @global name_economy1: Экономика I
+            @global name_economy2: Экономика II
+            @global name_defence1: Оборона I
+            @global name_defence2: Оборона II
+            @global name_satellite: Спутники
+            @global name_ballistic1: Баллистические ракеты I
+            @global name_ballistic2: Баллистические ракеты II
+        #TECH TAGS
+            @global tech_nano1: techNano1
+            @global tech_nano2: techNano2
+            @global tech_nano3: techNano3
+            @global tech_prod1: techProd1
+            @global tech_prod2: techProd2
+            @global tech_prod3: techProd3
+            @global tech_stealth: techStealth
+            @global tech_hyperdrive: techHyperdrive
+            @global tech_infantry1: techInfantry1
+            @global tech_infantry2: techInfantry2
+            @global tech_infantry3: techInfantry3
+            @global tech_tanks1: techTanks1
+            @global tech_tanks2: techTanks2
+            @global tech_tanks3: techTanks3
+            @global tech_mech: mechTech
+            @global tech_aircraft1: techAircraft1
+            @global tech_aircraft2: techAircraft2
+            @global tech_aircraft3: techAircraft3
+            @global tech_ships1: techShips1
+            @global tech_ships2: techShips2
+            @global tech_economy1: techEconomy1
+            @global tech_economy2: techEconomy2
+            @global tech_defence1: techDefence1
+            @global tech_defence2: techDefence2
+            @global tech_satellite: satelliteTech
+            @global tech_ballistic1: techBallisticMissiles1
+            @global tech_ballistic2: techBallisticMissiles2
+#TEMPLATES
+    [template_switchStateAction]
+    pos:-99999
+    displayType: rally
+    buildSpeed: 0
+    highPriorityQueue: true
+    unitShownInUI:NONE
+    alwaysSinglePress: true
 
-[template_buildingUpgrade]
-displayType:upgrade
-pos:-1000
-buildSpeed: 60s
-iconExtraImage: SHARED:icon_upgrade_top.png
-iconExtraColor: #AAFFFFFF
+    [template_buildingUpgrade]
+    displayType:upgrade
+    pos:-1000
+    buildSpeed: 60s
+    iconExtraImage: SHARED:icon_upgrade_top.png
+    iconExtraColor: #AAFFFFFF
 
-[template_showLoreAction]
-displayType: infoOnlyNoBox
-isVisible:true
-isActive:false
-iconExtraImage:ROOT:/ASSETS/ui/action_icons/lore.png
-pos: -10000
-text: Предыстория
+    [template_showLoreAction]
+    displayType: infoOnlyNoBox
+    isVisible:true
+    isActive:false
+    iconExtraImage:ROOT:/ASSETS/ui/action_icons/lore.png
+    pos: -10000
+    text: Предыстория
 
+    [template_commonEffects]
+    
+#GLOBAL RESOURCES
+    [global_resource_tech]
+    displayName:Технологические очки
+    displayColor:#186bf0
+    displayRoundedDown:true
+    iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
+    iconImageUseInText: true
+    displayColorUseInText: true
+    displayDigitGrouping: space
+    displayWhenZero:true
 
-[global_resource_tech]
-displayName:Технологические очки
-displayColor:#186bf0
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
-iconImageUseInText: true
-displayColorUseInText: true
-displayDigitGrouping: space
-displayWhenZero:true
+    [global_resource_experimental]
+    displayName:Энергетические сплавы
+    displayColor:#00B7EB
+    displayRoundedDown:true
+    iconImage:ROOT:ASSETS/ui/resource_icons/experimental.png
+    iconImageUseInText: true
+    displayColorUseInText: true
+    displayDigitGrouping: space
+    displayWhenZero:true
 
-[global_resource_experimental]
-displayName:Энергетические сплавы
-displayColor:#00B7EB
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/experimental.png
-iconImageUseInText: true
-displayColorUseInText: true
-displayDigitGrouping: space
-displayWhenZero:true
+    [global_resource_crystalline]
+    displayName:Кристаллин
+    displayColor:#FFDF64
+    displayRoundedDown:true
+    iconImage:ROOT:ASSETS/ui/resource_icons/crystalline.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
 
-[global_resource_crystalline]
-displayName:Кристаллин
-displayColor:#FFDF64
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/crystalline.png
-iconImageUseInText: true
-displayDigitGrouping: space
-displayColorUseInText: true
-displayWhenZero:true
+    [global_resource_electricity]
+    displayName:Энергокредиты
+    displayColor:#F4A900
+    displayRoundedDown:true
+    iconImage:ROOT:ASSETS/ui/resource_icons/energy.png
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
 
-[global_resource_electricity]
-displayName:Энергокредиты
-displayColor:#F4A900
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/energy.png
-displayDigitGrouping: space
-displayColorUseInText: true
-displayWhenZero:true
+    #ORBITAL SIGNAL RESOURCES
 
-[global_resource_MSite]
-displayName:Military Satellite
-displayNameShort:MSite
-displayColor:#37ba00
-[global_resource_ESite]
-displayName:Energy Satellite
-displayNameShort:ESite
-displayColor:#37ba00
-[resource_EMP]
-displayName:EMP
-displayName_zh:电磁脉冲
-hidden:true
-[hiddenAction_EMP_activate]
-autoTrigger:if self.resource(greaterThan=0,type='EMP')
-setUnitStats:moveSpeed=0,maxTurnSpeed=0,maxAttackRange=0,nanoRange=0,selfRegenRate=0
-clearAllWaypoints:true
-[hiddenAction_EMP_limit]
-autoTrigger:if self.resource(greaterThan=5,type='EMP')
-resourceAmount:EMP
-resourceAmount_setValue:5
-[hiddenAction_EMP_decrease]
-autoTrigger:if self.resource(greaterThan=1,type='EMP')
-addResources:EMP=-1
-[hiddenAction_EMP_deactivate]
-autoTrigger:if self.resource(greaterThan=0,lessThan=2,type='EMP')
-resourceAmount:EMP
-resourceAmount_setValue:0
-resetUnitStats:true
-[resource_抛锚可见]
-hidden:false
-displayName:抛锚可见
-displayColor:#FFFFFF
-[resource_小导弹]
-displayName:小导弹
-[resource_大导弹]
-displayName:大导弹
-[resource_全打击]
-displayName:全打击
-[global_resource_定位加入]
-hidden:true
-[global_resource_开火]
-hidden:true
-displayName:开火
-[global_resource_开始供应]
-hidden:true
-displayName:开始供应
-[resource_Po]
-hidden:false
-displayName:Po
+        [global_resource_MSite]
+        displayName:Military Satellite
+        displayNameShort:MSite
+        displayColor:#37ba00
+
+        [global_resource_ESite]
+        displayName:Energy Satellite
+        displayNameShort:ESite
+        displayColor:#37ba00
+
+        [resource_EMP]
+        displayName:EMP
+        displayName_zh:电磁脉冲
+        hidden:true
+
+        [hiddenAction_EMP_activate]
+        autoTrigger:if self.resource(greaterThan=0,type='EMP')
+        setUnitStats:moveSpeed=0,maxTurnSpeed=0,maxAttackRange=0,nanoRange=0,selfRegenRate=0
+        clearAllWaypoints:true
+
+        [hiddenAction_EMP_limit]
+        autoTrigger:if self.resource(greaterThan=5,type='EMP')
+        resourceAmount:EMP
+        resourceAmount_setValue:5
+
+        [hiddenAction_EMP_decrease]
+        autoTrigger:if self.resource(greaterThan=1,type='EMP')
+        addResources:EMP=-1
+
+        [hiddenAction_EMP_deactivate]
+        autoTrigger:if self.resource(greaterThan=0,lessThan=2,type='EMP')
+        resourceAmount:EMP
+        resourceAmount_setValue:0
+        resetUnitStats:true
+
+        [resource_抛锚可见]
+        hidden:false
+        displayName:抛锚可见
+        displayColor:#FFFFFF
+
+        [resource_小导弹]
+        displayName:小导弹
+
+        [resource_大导弹]
+        displayName:大导弹
+
+        [resource_全打击]
+        displayName:全打击
+
+        [global_resource_定位加入]
+        hidden:true
+
+        [global_resource_开火]
+        hidden:true
+        displayName:开火
+
+        [global_resource_开始供应]
+        hidden:true
+        displayName:开始供应
+        
+        [resource_Po]
+        hidden:false
+        displayName:Po
 
 [resource_indirectKills]
 displayName: Indirect Kills
@@ -184,7 +214,6 @@ hidden: false
 priority: 1
 displayColor: red
 
-[template_commonEffects]
 [effect_spawnEffect]
 life: 50
 stripIndex: explode_big

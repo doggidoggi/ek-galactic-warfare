@@ -161,6 +161,8 @@ canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) o
 	temporarilyAddTags:dead
 	spawnEffects:smoke*2
 
+	[hiddenAction_removeWreak]
+
 	[effect_smoke]
 	life: 300
 	color:black
