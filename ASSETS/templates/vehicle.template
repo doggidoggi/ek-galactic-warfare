@@ -25,7 +25,7 @@ movementEffectRate:6
 
 [effect_tankTraceSmall]
 life:200
-image:ROOT:ASSETS/images/graphicsEffects/tankTraceSmall.png
+image:ROOT:ASSETS/graphicsEffects/tankTraceSmall.png
 attachedToUnit:false
 drawUnderUnits:true
 scaleFrom:${core.radius/53}

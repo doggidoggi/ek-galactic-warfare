@@ -1,0 +1,116 @@
+[core]
+name: sanaCCTemplate
+displayText: Флюксенбург
+class:             CustomUnitMetadata
+showInEditor: false
+techLevel: 1
+price:             0
+maxHp:             4000
+mass:              9000
+buildSpeed:        0.005
+radius:            18
+isBio:             false
+isBuilding:        true
+energyMax:          1
+energyRegen:       0.0001
+energyNeedsToRechargeToFull: true
+autoRepair: true
+selfRegenRate:0.2
+generation_credits: 25
+softCollisionOnAll: 5
+footprint:-1,-1,1,1
+constructionFootprint:-2,-2,2,3
+exit_x:-8
+exit_y:-8
+tags: commandCenter
+reclaimPrice:0
+
+[action_showLore]
+@copyFromSection: template_showLoreAction
+description: Банановая Империя — фракция, объединившая планеты с разнообразными биомами и культурами. Она стремится к интеграции различных цивилизаций, используя технологии.\nИдеология: Технократия, культурное разнообразие и адаптация. Банановая Империя верит в гармоничное сосуществование различных рас и использование древних знаний для развития общества.\nВоенные силы: Комбинированные войска, сочетающие технологические инновации.\nОсобенности: Высокий уровень адаптивности и инноваций, использование древних артефактов и энергетических ресурсов планет. Экономика ориентирована на исследование и освоение уникальных природных ресурсов.
+
+[graphics]
+image:        sana_base.png
+image_shadow: NONE
+image_wreak:  sana_base_dead.png
+shadowOffsetX:1
+shadowOffsetY:1
+rotate_with_direction:false
+movementEffect:CUSTOM:EkRotorwash,CUSTOM:EkRotordust,CUSTOM:projectileTrail
+movementEffectRate:6
+
+[effect_projectileTrail]
+createWhenZoomedOut:false
+priority:low
+image:light_50.png
+imageShadow:light_50.png
+life:50
+fadeOut:true
+attachedToUnit:false
+color:#63e6e8
+fadeInTime:2
+scaleFrom:0.55
+scaleTo:3
+alpha:0.6
+drawUnderUnits:true
+ySpeedRelative:-0.2
+xOffsetRelative:0
+atmospheric:true
+
+[effect_EkRotorwash]
+image:rotorwash.png
+createWhenOverLand:false
+life:40
+spawnChance:1
+fadeOut:true
+attachedToUnit:false
+fadeInTime:2
+scaleFrom:0.25
+scaleTo:1.5
+alpha:0.5
+drawUnderUnits:true
+hOffset:-40
+dirOffsetRandom:180
+dirSpeedRandom:0.6
+atmospheric:true
+
+[effect_EkRotordust]
+image:rotorwash.png
+createWhenOverLiquid:false
+life:40
+spawnChance:1
+fadeOut:true
+attachedToUnit:false
+fadeInTime:2
+scaleFrom:0.25
+scaleTo:1.5
+alpha:1
+color:#916C5B
+drawUnderUnits:true
+hOffset:-40
+dirOffsetRandom:180
+dirSpeedRandom:0.6
+atmospheric:true
+
+[attack]
+canAttack:true
+canAttackFlyingUnits:true
+canAttackLandUnits:true
+canAttackUnderwaterUnits:false
+turretSize:16
+turretTurnSpeed:4
+maxAttackRange:280
+shootDelay:70
+aimOffsetSpread:0.25
+
+[turret_1]
+x: 0
+y: 0
+
+[movement]
+movementType:NONE
+moveSpeed:0
+moveAccelerationSpeed:0.01
+moveDecelerationSpeed:0.01
+maxTurnSpeed:0
+turnAcceleration:0.1

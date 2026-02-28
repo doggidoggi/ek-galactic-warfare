@@ -85,7 +85,7 @@ autoTriggerCheckRate:everyFrame
     displayType: infoOnlyNoBox
     isVisible:true
     isActive:false
-    iconExtraImage:ROOT:/ASSETS/ui/action_icons/lore.png
+    iconExtraImage:ROOT:ASSETS/ui/action_icons/lore.png
     pos: -10000
     text: Предыстория
 
@@ -235,7 +235,7 @@ physics: true
 xSpeedRelativeRandom: 0.5
 ySpeedRelativeRandom: 0.5
 hSpeed: 1
-image: ROOT:/ASSETS/images/particles/spittle_particle.png
+image: ROOT:ASSETS/particles/spittle_particle.png
 priority: verylow
 
 [effect_spittle2]
@@ -245,7 +245,7 @@ physics: true
 xSpeedRelativeRandom: 1.5
 ySpeedRelativeRandom: 1.5
 hSpeed: 2
-image: ROOT:/ASSETS/images/particles/spittle_particle.png
+image: ROOT:ASSETS/particles/spittle_particle.png
 priority: high
 
 [effect_hitLightFlash]
@@ -265,42 +265,42 @@ life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/air_bug_dead.ogg:0.6
+alsoPlaySound: ROOT:ASSETS/sounds/air_bug_dead.ogg:0.6
 
 [effect_bigDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/big_bug_dead.ogg
+alsoPlaySound: ROOT:ASSETS/sounds/big_bug_dead.ogg
 
 [effect_monsterDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/monster_bug_dead.ogg
+alsoPlaySound: ROOT:ASSETS/sounds/monster_bug_dead.ogg
 
 [effect_spitterDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/spitter_bug_dead.ogg
+alsoPlaySound: ROOT:ASSETS/sounds/spitter_bug_dead.ogg
 
 [effect_queenDeath]
 life: 0
 spawnChance: 1
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/queen_bug_dead.ogg
+alsoPlaySound: ROOT:ASSETS/sounds/queen_bug_dead.ogg
 
 [effect_smallDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/small_bug_dead.ogg
+alsoPlaySound: ROOT:ASSETS/sounds/small_bug_dead.ogg
 
 [resource_localCrystal]
 displayName: Crystal

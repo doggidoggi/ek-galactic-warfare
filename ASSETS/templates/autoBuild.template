@@ -1,0 +1,19 @@
+[core]
+@memory recursiveBuild: boolean
+
+[action_enableAutoBuild]
+@copyFromSection: template_switchStateAction
+text: Ручное строительство
+description: Включить автостроительство юнитов
+highPriorityQueue: true
+isVisible: if memory.recursiveBuild == false
+setUnitMemory: recursiveBuild = true
+ai_isDisabled: true
+
+[action_disableAutoBuild]
+@copyFromSection: action_enableAutoBuild
+text: Автостроительство
+description: Отключить автостроительство юнитов
+isGuiBlinking: true
+isVisible: if memory.recursiveBuild == true
+setUnitMemory: recursiveBuild = false
