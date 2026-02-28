@@ -1,5 +1,5 @@
 [template_ammo]
-image:ROOT:ASSETS/projectiles/tracer_shot.png
+image:ROOT:assets/projectiles/tracer_shot.png
 directDamage:1
 areaDamage:0
 armourIgnoreAmount:15
@@ -17,7 +17,7 @@ lightSize:0.8
 areaHitAirAndLandAtSameTime:true
 
 [template_rocket]
-image:ROOT:ASSETS/projectiles/strike_missile.png
+image:ROOT:assets/projectiles/strike_missile.png
 directDamage:1
 life:150
 speed:0.2
@@ -44,7 +44,7 @@ directDamage:0
 
 [effect_bulletTrail]
 life: 20
-image: ROOT:ASSETS/graphicsEffects/trail2.png
+image: ROOT:assets/graphicsEffects/trail2.png
 color: #CCCCDD
 priority: veryhigh
 attachedToUnit: false

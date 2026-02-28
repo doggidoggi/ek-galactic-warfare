@@ -3,7 +3,7 @@ copyFrom:ammo.template
 
 [projectile_200mm]
 @copyFromSection:template_ammo
-image:ROOT:ASSETS/projectiles/high_velocity_shell.png
+image:ROOT:assets/projectiles/high_velocity_shell.png
 life:550
 drawSize:1.5
 largeHitEffect:true
@@ -22,7 +22,7 @@ armourIgnoreAmount:-100
 speed:4
 
 [effect_projectileTrail]
-image:ROOT:ASSETS/projectiles/trail_ring.png
+image:ROOT:assets/projectiles/trail_ring.png
 life:20
 fadeOut:true
 fadeInTime:1
@@ -59,7 +59,7 @@ ySpeedAbsoluteRandom:0.3
 atmospheric:true
 
 [effect_projectileGroundSplash]
-image:ROOT:ASSETS/projectiles/sub_bubbles.png
+image:ROOT:assets/projectiles/sub_bubbles.png
 createWhenOverLiquid:false
 life:120
 fadeOut:true
@@ -105,7 +105,7 @@ ySpeedAbsoluteRandom:0.3
 atmospheric:true
 
 [effect_projectileWaterSplash]
-image:ROOT:ASSETS/projectiles/sub_bubbles.png
+image:ROOT:assets/projectiles/sub_bubbles.png
 createWhenOverLand:false
 life:120
 fadeOut:true

@@ -85,7 +85,7 @@ autoTriggerCheckRate:everyFrame
     displayType: infoOnlyNoBox
     isVisible:true
     isActive:false
-    iconExtraImage:ROOT:ASSETS/ui/action_icons/lore.png
+    iconExtraImage:ROOT:assets/ui/action_icons/lore.png
     pos: -10000
     text: Предыстория
 
@@ -96,7 +96,7 @@ autoTriggerCheckRate:everyFrame
     displayName:Технологические очки
     displayColor:#186bf0
     displayRoundedDown:true
-    iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
+    iconImage:ROOT:assets/ui/resource_icons/tech.png
     iconImageUseInText: true
     displayColorUseInText: true
     displayDigitGrouping: space
@@ -106,7 +106,7 @@ autoTriggerCheckRate:everyFrame
     displayName:Энергетические сплавы
     displayColor:#00B7EB
     displayRoundedDown:true
-    iconImage:ROOT:ASSETS/ui/resource_icons/experimental.png
+    iconImage:ROOT:assets/ui/resource_icons/experimental.png
     iconImageUseInText: true
     displayColorUseInText: true
     displayDigitGrouping: space
@@ -116,7 +116,7 @@ autoTriggerCheckRate:everyFrame
     displayName:Кристаллин
     displayColor:#FFDF64
     displayRoundedDown:true
-    iconImage:ROOT:ASSETS/ui/resource_icons/crystalline.png
+    iconImage:ROOT:assets/ui/resource_icons/crystalline.png
     iconImageUseInText: true
     displayDigitGrouping: space
     displayColorUseInText: true
@@ -126,7 +126,7 @@ autoTriggerCheckRate:everyFrame
     displayName:Энергокредиты
     displayColor:#F4A900
     displayRoundedDown:true
-    iconImage:ROOT:ASSETS/ui/resource_icons/energy.png
+    iconImage:ROOT:assets/ui/resource_icons/energy.png
     displayDigitGrouping: space
     displayColorUseInText: true
     displayWhenZero:false
@@ -235,7 +235,7 @@ physics: true
 xSpeedRelativeRandom: 0.5
 ySpeedRelativeRandom: 0.5
 hSpeed: 1
-image: ROOT:ASSETS/particles/spittle_particle.png
+image: ROOT:assets/particles/spittle_particle.png
 priority: verylow
 
 [effect_spittle2]
@@ -245,7 +245,7 @@ physics: true
 xSpeedRelativeRandom: 1.5
 ySpeedRelativeRandom: 1.5
 hSpeed: 2
-image: ROOT:ASSETS/particles/spittle_particle.png
+image: ROOT:assets/particles/spittle_particle.png
 priority: high
 
 [effect_hitLightFlash]
@@ -265,42 +265,42 @@ life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:ASSETS/sounds/air_bug_dead.ogg:0.6
+alsoPlaySound: ROOT:assets/sounds/air_bug_dead.ogg:0.6
 
 [effect_bigDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:ASSETS/sounds/big_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/big_bug_dead.ogg
 
 [effect_monsterDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:ASSETS/sounds/monster_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/monster_bug_dead.ogg
 
 [effect_spitterDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:ASSETS/sounds/spitter_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/spitter_bug_dead.ogg
 
 [effect_queenDeath]
 life: 0
 spawnChance: 1
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:ASSETS/sounds/queen_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/queen_bug_dead.ogg
 
 [effect_smallDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:ASSETS/sounds/small_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/small_bug_dead.ogg
 
 [resource_localCrystal]
 displayName: Crystal

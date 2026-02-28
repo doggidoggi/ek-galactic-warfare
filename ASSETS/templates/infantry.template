@@ -1,6 +1,6 @@
 [core]
 name:infantryTemplate
-soundOnDeath:ROOT:ASSETS/sounds/infantry_death.ogg
+soundOnDeath:ROOT:assets/sounds/infantry_death.ogg
 tags:infantry
 mass:10
 isBio:true

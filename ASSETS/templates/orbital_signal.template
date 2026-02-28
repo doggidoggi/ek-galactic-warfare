@@ -71,7 +71,7 @@ iconImage:icon2_drop.png
 isLocked:if self.resource(greaterThan=0,type='signal')
 isLockedMessage:Вражеский стратегический оборонный комплекс создает помехи коммуникациям
 isLockedAlt:if self.resource(greaterThan=0,type='EMP')
-playSoundAtUnit:ROOT:ASSETS/sounds/reinforce_message.ogg:3.5
+playSoundAtUnit:ROOT:assets/sounds/reinforce_message.ogg:3.5
 
 [action_shieldJammer]
 fireTurretXAtGround:shieldJammer
@@ -127,7 +127,7 @@ iconImage:icon2_kinetic.png
 isLocked:if self.resource(greaterThan=0,type='signal')
 isLockedMessage:Вражеский стратегический оборонный комплекс создает помехи коммуникациям
 isLockedAlt:if self.resource(greaterThan=0,type='EMP')
-playSoundAtUnit:ROOT:ASSETS/sounds/orbital_strike_message.ogg:3.5
+playSoundAtUnit:ROOT:assets/sounds/orbital_strike_message.ogg:3.5
 
 [action_dysonBeam]
 fireTurretXAtGround:dysonBeam
@@ -146,7 +146,7 @@ iconImage:icon2_laser.png
 isLocked:if self.resource(greaterThan=0,type='signal')
 isLockedMessage:Вражеский стратегический оборонный комплекс создает помехи коммуникациям
 isLockedAlt:if self.resource(greaterThan=0,type='EMP')
-playSoundAtUnit:ROOT:ASSETS/sounds/orbital_strike_message.ogg:3.5
+playSoundAtUnit:ROOT:assets/sounds/orbital_strike_message.ogg:3.5
 
 [action_dirtyBomb]
 fireTurretXAtGround:dirtyBomb
@@ -165,7 +165,7 @@ iconImage:icon2_fallout.png
 isLocked:if self.resource(greaterThan=0,type='signal')
 isLockedMessage:Вражеский стратегический оборонный комплекс создает помехи коммуникациям
 isLockedAlt:if self.resource(greaterThan=0,type='EMP')
-playSoundAtUnit:ROOT:ASSETS/sounds/orbital_strike_message.ogg:3.5
+playSoundAtUnit:ROOT:assets/sounds/orbital_strike_message.ogg:3.5
 
 [action_mirv]
 fireTurretXAtGround:mirv
