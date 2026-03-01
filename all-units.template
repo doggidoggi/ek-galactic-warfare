@@ -1,15 +1,12 @@
 [core]
 strictLevel:1
-ignoreInUnitCapCalculation:true
 autoTriggerCooldownTime_allowDangerousHighCPU:true
-@global gtt: self.globalTeamTags
-logIfCreditResourceUsed: true
 autoTriggerCheckRate:everyFrame
 
 #GLOBAL VARIABLES
+    @global gtt: self.globalTeamTags
     #TECH VARIABLES
         #TECH NAMES
-
             @global name_nano1: Нанорепликация I
             @global name_nano2: Нанорепликация II
             @global name_nano3: Нанорепликация III
@@ -65,71 +62,196 @@ autoTriggerCheckRate:everyFrame
             @global tech_satellite: satelliteTech
             @global tech_ballistic1: techBallisticMissiles1
             @global tech_ballistic2: techBallisticMissiles2
+        #TECH MULTI
+            @global tech_prod1_multi: 1.25
+            @global tech_prod2_multi: 1.75
+            @global tech_prod3_multi: 2
 #TEMPLATES
-    [template_switchStateAction]
-    pos:-99999
-    displayType: rally
-    buildSpeed: 0
-    highPriorityQueue: true
-    unitShownInUI:NONE
-    alwaysSinglePress: true
+    #ACTIONS
+        [template_switchStateAction]
+        pos:-3
+        displayType: rally
+        buildSpeed: 0
+        highPriorityQueue: true
+        unitShownInUI:NONE
+        alwaysSinglePress: true
 
-    [template_buildingUpgrade]
-    displayType:upgrade
-    pos:-1000
-    buildSpeed: 60s
-    iconExtraImage: SHARED:icon_upgrade_top.png
-    iconExtraColor: #AAFFFFFF
+        [template_situationInfo]
+        pos:-4
+        isActive:false
+        displayType: infoOnly
+        isGuiBlinking: true
 
-    [template_showLoreAction]
-    displayType: infoOnlyNoBox
-    isVisible:true
-    isActive:false
-    iconExtraImage:ROOT:assets/ui/action_icons/lore.png
-    pos: -10000
-    text: Предыстория
+        [template_buildingUpgrade]
+        displayType:upgrade
+        pos:-1000
+        buildSpeed: 60s
+        iconExtraImage: SHARED:icon_upgrade_top.png
+        iconExtraColor: #AAFFFFFF
 
-    [template_commonEffects]
+        [template_showLoreAction]
+        displayType: infoOnlyNoBox
+        isVisible:true
+        isActive:false
+        iconExtraImage:ROOT:assets/ui/action_icons/lore.png
+        pos: -10000
+        text: Предыстория
+    #DECALS
+        [template_situation_decal]
+        onlyTeam: own
+        onlyOnNonPreview: true
+        imageScale:0.5
+        alpha: 0.5
+        alwayStartDirAtZero:true
+        yOffsetAbsolute: -${core.radius}*1.25
+        xOffsetAbsolute: ${core.radius}*0.98
+    #EFFECTS
+        [template_commonEffects]
 
 #GLOBAL RESOURCES
-    [global_resource_tech]
-    displayName:Технологические очки
-    displayColor:#186bf0
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/tech.png
-    iconImageUseInText: true
-    displayColorUseInText: true
-    displayDigitGrouping: space
-    displayWhenZero:false
-
-    [global_resource_experimental]
+    [global_resource_alloys]
     displayName:Энергетические сплавы
-    displayColor:#00B7EB
+    displayColor:#90A4AE
     displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/experimental.png
+    iconImage:ROOT:assets/ui/resource_icons/alloys.png
     iconImageUseInText: true
     displayColorUseInText: true
     displayDigitGrouping: space
-    displayWhenZero:false
+    displayWhenZero:true
 
-    [global_resource_crystalline]
-    displayName:Кристаллин
-    displayColor:#FFDF64
+    [global_resource_minerals]
+    displayName:Минералы
+    displayColor:#90A4AE
     displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/crystalline.png
+    iconImage:ROOT:assets/ui/resource_icons/mineral.png
     iconImageUseInText: true
     displayDigitGrouping: space
     displayColorUseInText: true
-    displayWhenZero:false
+    displayWhenZero:true
 
-    [global_resource_electricity]
-    displayName:Энергокредиты
-    displayColor:#F4A900
+    [global_resource_consumerGood]
+    displayName:Потребительские товары
+    displayColor:#90A4AE
     displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/energy.png
+    iconImage:ROOT:assets/ui/resource_icons/consumer_goods.png
+    iconImageUseInText: true
     displayDigitGrouping: space
     displayColorUseInText: true
-    displayWhenZero:false
+    displayWhenZero:true
+
+    [global_resource_exoticGases]
+    displayName:Экзотические газы
+    displayColor:#FF5722
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/exotic_gases.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+    
+    [global_resource_rareCrystals]
+    displayName:Аксоний
+    displayColor:#3F51B5
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/axonium.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+
+    [global_resource_darkMatter]
+    displayName:Темная материя
+    displayColor:#3F51B5
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/dark_matter.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+
+    [global_resource_nanites]
+    displayName:Наниты
+    displayColor:#3F51B5
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/nanites.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+
+    [global_resource_astralThreads]
+    displayName:Астральные нити
+    displayColor:#3F51B5
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/astral_threads.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+
+    [global_resource_minorArtifacts]
+    displayName:Мелкие артефакты
+    displayColor:#3F51B5
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/minor_artifacts.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+
+    [global_resource_tradePotential]
+    displayName:Торговый потенциал
+    displayColor:#2196F3
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/trade_potential.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+
+    [global_resource_ideologicalPotential]
+    displayName:Идеологический потенциал
+    displayColor:#2196F3
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/ideological_potential.png
+    iconImageUseInText: true
+    displayDigitGrouping: space
+    displayColorUseInText: true
+    displayWhenZero:true
+
+    [global_resource_scientificPotential]
+    displayName:Научный потенциал
+    displayColor:#2196F3
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/scientific_potential.png
+    iconImageUseInText: true
+    displayColorUseInText: true
+    displayDigitGrouping: space
+    displayWhenZero:true
+
+    [global_resource_influence]
+    displayName:Влияние
+    displayColor:#81C784
+    displayRoundedDown:true
+    iconImage:ROOT:assets/ui/resource_icons/influence.png
+    iconImageUseInText: true
+    displayColorUseInText: true
+    displayDigitGrouping: space
+    displayWhenZero:true
+    
+    #ENERGY
+        [global_resource_energyCredits]
+        displayName:Энергокредиты
+        displayColor:#F4A900
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/energy.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:true
+
+        [global_resource_energyCreditsNet]
+        hidden:false
 
     #ORBITAL SIGNAL RESOURCES
 
@@ -196,6 +318,13 @@ autoTriggerCheckRate:everyFrame
         [resource_Po]
         hidden:false
         displayName:Po
+#UNIT DECALS
+    [decal_selected]
+    image: ROOT:assets/ui/decals/select_indicator.png
+    onlyWhenSelectedByAnyPlayer: true
+    imageScale: ${core.radius}*0.003
+    alwaysStartDirAtZero: true
+    layer: afterBody
 
 [resource_indirectKills]
 displayName: Indirect Kills
@@ -305,7 +434,7 @@ alsoPlaySound: ROOT:assets/sounds/small_bug_dead.ogg
 [resource_localCrystal]
 displayName: Crystal
 displayColor: #7fff00
-equivalentGlobalResourceForAI: crystalline
+equivalentGlobalResourceForAI: minerals
 
 [projectile_NULL]
 directDamage:0

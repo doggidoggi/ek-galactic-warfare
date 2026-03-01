@@ -1,4 +1,5 @@
 [core]
+armour:25
 copyFrom:canBurned.template
 maxTransportingUnits:1
 transportUnitsRequireTag:infantry

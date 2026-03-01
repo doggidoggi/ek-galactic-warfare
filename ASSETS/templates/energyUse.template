@@ -1,0 +1,28 @@
+[action_energyCreditsLowGui]
+@copyFromSection: template_situationInfo
+iconExtraImage: ROOT:assets/ui/decals/situations/energy_credits_low.png
+isVisible: if self.resource.energyCredits > 0 and self.resource.energyCreditsNet < 0 and not self.isOnNeutralTeam()
+text: ПРЕДУПРЕЖДЕНИЕ
+description: Предупреждение!\nПотребление энергии превышает выработку.\nВнешние накопители разряжаются.\nПроверьте генераторы и солнечные панели, пока запас не исчерпан.
+
+[action_energyCreditsShortageGui]
+@copyFromSection: template_situationInfo
+iconExtraImage: ROOT:assets/ui/decals/situations/energy_credits_deficit.png
+isVisible:if self.resource.energyCredits <= 0 and not self.isOnNeutralTeam()
+text: ОБЕСТОЧЕН
+description: Резервы на нуле!\nПроизводство парализовано, юниты ослаблены.\nНемедленно постройте дополнительные источники энергии или отключите энергозатратные объекты.
+
+[decal_energyStable]
+@copyFromSection: template_situation_decal
+isVisible:if self.resource.energyCredits > 0 and self.resource.energyCreditsNet > 0
+image: ROOT:assets/ui/decals/situations/energy_credits_stable.png
+
+[decal_energyLow]
+@copyFromSection: template_situation_decal
+isVisible:if self.resource.energyCredits > 0 and self.resource.energyCreditsNet < 0
+image: ROOT:assets/ui/decals/situations/energy_credits_low.png
+
+[decal_energyDeficit]
+@copyFromSection: template_situation_decal
+isVisible:if self.resource.energyCredits <= 0
+image: ROOT:assets/ui/decals/situations/energy_credits_deficit.png
