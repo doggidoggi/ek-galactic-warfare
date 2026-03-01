@@ -131,6 +131,26 @@ autoTriggerCheckRate:everyFrame
     displayColorUseInText: true
     displayWhenZero:false
 
+    [global_resource_biomass]
+    displayName:Биомасса:
+    displayColor:#3a6904
+    displayRoundedDown:true
+    iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
+    iconImageUseInText: true
+    displayColorUseInText: true
+    displayDigitGrouping: space
+    displayWhenZero:false
+
+    [global_resource_genom]
+    displayName:Геном
+    displayColor:#0b6b41
+    displayRoundedDown:true
+    iconImage:ROOT:ASSETS/ui/resource_icons/genom.png
+    iconImageUseInText: true
+    displayColorUseInText: true
+    displayDigitGrouping: space
+    displayWhenZero:false
+
     #ORBITAL SIGNAL RESOURCES
 
         [global_resource_MSite]
