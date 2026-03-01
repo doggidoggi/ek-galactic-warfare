@@ -7,7 +7,7 @@ delay:6
 idleDir:45
 turnSpeed:8.0
 turnSpeedAcceleration:0
-shoot_sound:ROOT:ASSETS/sounds/mg_shoot.wav
+shoot_sound:ROOT:assets/sounds/mg_shoot.wav
 shoot_sound_vol:0.1
 shoot_flame:CUSTOM:EkMuzzleTiny
 shoot_light:#FFFFCC66
@@ -22,7 +22,7 @@ canOnlyAttackUnitsWithTags:lightArmor,infantry
 [effect_EkMuzzleTiny]
 life:8
 attachedToUnit:true
-image:ROOT:ASSETS/graphicsEffects/muzzle_tiny.png
+image:ROOT:assets/graphicsEffects/muzzle_tiny.png
 total_frames:3
 animateFrameStart:0
 animateFrameEnd:2

@@ -1,5 +1,5 @@
 [projectile_flames]
-image:ROOT:ASSETS/projectiles/flame.png
+image:ROOT:assets/projectiles/flame.png
 directDamage:0
 areaDamage:2
 areaRadius:20

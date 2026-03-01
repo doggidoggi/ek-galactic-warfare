@@ -3,7 +3,7 @@ copyFrom:ammo.template
 
 [projectile_13mm]
 @copyFromSection:template_ammo
-image:ROOT:ASSETS/projectiles/tracer_shot_small1.png
+image:ROOT:assets/projectiles/tracer_shot_small1.png
 spawnProjectilesOnExplode:13mm_damage(yOffsetRelative=-20)
 explodeEffect:none
 

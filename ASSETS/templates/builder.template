@@ -1,5 +1,5 @@
 [core]
-copyFrom: ROOT:ASSETS/templates/T1engineer.ini
+copyFrom: ROOT:assets/templates/T1engineer.ini
 name:      builder
 price:     500
 maxHp:     170

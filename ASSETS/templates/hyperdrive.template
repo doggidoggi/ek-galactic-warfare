@@ -18,12 +18,12 @@ buildSpeed:3.8s
 pos:0.1
 highPriorityQueue:true
 onlyOneUnitAtATime:true
-iconImage:ROOT:ASSETS/ui/action_icons/hyperjump.png
+iconImage:ROOT:assets/ui/action_icons/hyperjump.png
 allowMultipleInQueue:false
 alsoTriggerAction:blink3
 alsoQueueAction:blink2
 setUnitMemory:blinktarget=thisActionTarget
-playSoundAtUnit:ROOT:ASSETS/sounds/hyperjump_enter.wav
+playSoundAtUnit:ROOT:assets/sounds/hyperjump_enter.wav
 
 [hiddenAction_blink2]
 whenBuilding_playAnimation:blink
@@ -87,7 +87,7 @@ drawUnderUnits:false
 [effect_playSound]
 life:0
 priority:critical
-alsoPlaySound:ROOT:ASSETS/sounds/hyperjump_exit1.wav
+alsoPlaySound:ROOT:assets/sounds/hyperjump_exit1.wav
 
 [effect_blinkGlow]
 priority:high

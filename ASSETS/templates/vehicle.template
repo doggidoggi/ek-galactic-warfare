@@ -25,7 +25,7 @@ movementEffectRate:6
 
 [effect_tankTraceSmall]
 life:200
-image:ROOT:ASSETS/graphicsEffects/tankTraceSmall.png
+image:ROOT:assets/graphicsEffects/tankTraceSmall.png
 attachedToUnit:false
 drawUnderUnits:true
 scaleFrom:${core.radius/53}
@@ -153,24 +153,27 @@ canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) o
 
 #DEATH
 
+	[hiddenAction_death]
+	autoTrigger:if self.tags(includes='dead')
+	convertTo_keepCurrentTags:true   
+
 	[hiddenAction_checkDead]
 	autoTrigger:if self.hp() < 5  or self.hasTakenDamage(withinSeconds=1) and self.transportingCount() == 0
 	setUnitStats:hp=-1,moveSpeed=0
 	startUnloadingTransport:true
 	clearActiveWaypoint:true
-	temporarilyAddTags:dead,deadAnimation
+	temporarilyAddTags:dead
 	spawnEffects:smoke*2
-	alsoQueueAction:removeWreak,removeAnimation
+	alsoQueueAction:removeWreak
 
-	[hiddenAction_deadType]
-	autoTrigger:if self.tags(includes='deadAnimation')
+	[hiddenAction_deadAnimation]
+	autoTrigger:if not self.tags(includes='deadAnimationEnd') and self.tags(includes='dead')
 	deleteNumUnitsFromTransport:100
 	alsoTriggerAction:explosion
 
 	[hiddenAction_removeAnimation]
-	autoTrigger:false
-	buildSpeed: 5s
-	temporarilyRemoveTags:deadAnimation
+	autoTrigger:if self.tags(includes='dead')
+	temporarilyAddTags:deadAnimationEnd
 
 	[hiddenAction_removeWreak]
 	autoTrigger:false
@@ -183,8 +186,8 @@ canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) o
 
 	[effect_explosion]
 	life:100
-	image: ROOT:ASSETS/graphicsEffects/explosion1.png
-	alsoPlaySound: ROOT:ASSETS/sounds/explosion_01.ogg,ROOT:ASSETS/sounds/explosion_02.ogg,ROOT:ASSETS/sounds/explosion_03.ogg,ROOT:ASSETS/sounds/explosion_04.ogg,ROOT:ASSETS/sounds/explosion_05.wav,ROOT:ASSETS/sounds/explosion_06.ogg,ROOT:ASSETS/sounds/explosion_07.wav,ROOT:ASSETS/sounds/explosion_08.wav,ROOT:ASSETS/sounds/explosion_09.ogg
+	image: ROOT:assets/graphicsEffects/explosion1.png
+	alsoPlaySound: ROOT:assets/sounds/explosion_01.ogg,ROOT:assets/sounds/explosion_02.ogg,ROOT:assets/sounds/explosion_03.ogg,ROOT:assets/sounds/explosion_04.ogg,ROOT:assets/sounds/explosion_05.wav,ROOT:assets/sounds/explosion_06.ogg,ROOT:assets/sounds/explosion_07.wav,ROOT:assets/sounds/explosion_08.wav,ROOT:assets/sounds/explosion_09.ogg
 	scaleFrom:1
 	scaleTo:1
 	total_frames:48
@@ -196,6 +199,7 @@ canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) o
 	hOffset:1
 
 	[effect_smoke]
+	priority: verylow
 	life: 300
 	color:black
 	fadeInTime:80
@@ -208,35 +212,34 @@ canAttackLandUnits:if ((self.transportingCount() == 1 and not self.isMoving()) o
 	xSpeedRelativeRandom: 0.08
 	ySpeedRelativeRandom: 0.08
 	hSpeed: 0.2
-	image: ROOT:ASSETS/graphicsEffects/smoke.png
-	priority: low
+	image: ROOT:assets/graphicsEffects/smoke.png
 	drawUnderUnits:false
 	atmospheric:true
 
 	[effect_frag]
+	priority: verylow
 	createWhenOverLiquid: false
 	life:500
 	scaleFrom:0.1
 	scaleTo:0.04
-	image: ROOT:ASSETS/graphicsEffects/part1.png
+	image: ROOT:assets/graphicsEffects/part1.png
 	hSpeed:5
 	dirOffsetRandom:360
 	xSpeedRelativeRandom:1
 	ySpeedRelativeRandom:1
 	physics:true
-	priority:low
 	attachedToUnit:false
 
 	[effect_frag2]
+	priority: verylow
 	createWhenOverLiquid: false
 	life:500
 	scaleFrom:0.1
 	scaleTo:0.04
-	image: ROOT:ASSETS/graphicsEffects/part2.png
+	image: ROOT:assets/graphicsEffects/part2.png
 	hSpeed:5
 	dirOffsetRandom:360
 	xSpeedRelativeRandom:1
 	ySpeedRelativeRandom:1
 	physics:true
-	priority:low
 	attachedToUnit:false
