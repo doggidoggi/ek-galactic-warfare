@@ -77,6 +77,25 @@ iconExtraImage:ROOT:/ASSETS/ui/action_icons/lore.png
 pos: -10000
 text: Предыстория
 
+[global_resource_biomass]
+displayName:Биомасса
+displayColor:#186bf0
+displayRoundedDown:true
+iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
+iconImageUseInText: true
+displayColorUseInText: true
+displayDigitGrouping: space
+displayWhenZero:true
+
+[global_resource_genom]
+displayName:Геном
+displayColor:#186bf0
+displayRoundedDown:true
+iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
+iconImageUseInText: true
+displayColorUseInText: true
+displayDigitGrouping: space
+displayWhenZero:true
 
 [global_resource_tech]
 displayName:Технологические очки
