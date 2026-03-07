@@ -1,0 +1,3 @@
+[hiddenAction_boost]
+autoTrigger: if self.globalTeamTags(includes='techEggs1')
+setUnitStats: nanoFactorySpeed=1.5

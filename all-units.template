@@ -85,7 +85,7 @@ iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
 iconImageUseInText: true
 displayColorUseInText: true
 displayDigitGrouping: space
-displayWhenZero:true
+displayWhenZero:false
 
 [global_resource_genom]
 displayName:Геном
@@ -95,7 +95,7 @@ iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
 iconImageUseInText: true
 displayColorUseInText: true
 displayDigitGrouping: space
-displayWhenZero:true
+displayWhenZero:false
 
 [global_resource_tech]
 displayName:Технологические очки
@@ -105,7 +105,7 @@ iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
 iconImageUseInText: true
 displayColorUseInText: true
 displayDigitGrouping: space
-displayWhenZero:true
+displayWhenZero:false
 
 [global_resource_experimental]
 displayName:Энергетические сплавы
@@ -115,7 +115,7 @@ iconImage:ROOT:ASSETS/ui/resource_icons/experimental.png
 iconImageUseInText: true
 displayColorUseInText: true
 displayDigitGrouping: space
-displayWhenZero:true
+displayWhenZero:false
 
 [global_resource_crystalline]
 displayName:Кристаллин
@@ -125,7 +125,7 @@ iconImage:ROOT:ASSETS/ui/resource_icons/crystalline.png
 iconImageUseInText: true
 displayDigitGrouping: space
 displayColorUseInText: true
-displayWhenZero:true
+displayWhenZero:false
 
 [global_resource_electricity]
 displayName:Энергокредиты
@@ -134,7 +134,7 @@ displayRoundedDown:true
 iconImage:ROOT:ASSETS/ui/resource_icons/energy.png
 displayDigitGrouping: space
 displayColorUseInText: true
-displayWhenZero:true
+displayWhenZero:false
 
 [global_resource_MSite]
 displayName:Military Satellite
