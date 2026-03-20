@@ -1,0 +1,15 @@
+[core]
+autoTriggerCooldownTime: 1s
+dont_load: true 
+
+[hiddenAction_boost1]
+autoTrigger: if self.globalTeamTags(includes='${tech_prod1}')
+addResourcesWithLogic: credits=${income*0.25}
+
+[hiddenAction_boost2]
+autoTrigger: if self.globalTeamTags(includes='${tech_prod2}')
+addResourcesWithLogic: credits=${income*0.25}
+
+[hiddenAction_boost3]
+autoTrigger: if self.globalTeamTags(includes='${tech_prod3}')
+addResourcesWithLogic: credits=${income*0.5}
