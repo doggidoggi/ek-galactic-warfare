@@ -33,6 +33,8 @@ autoTriggerCheckRate:everyFrame
 @global name_satellite: Спутники
 @global name_ballistic1: Баллистические ракеты I
 @global name_ballistic2: Баллистические ракеты II
+@global name_space1: Космическая Программа I
+@global name_space2: Космическая Программа II
 
 @global tech_nano1: techNano1
 @global tech_nano2: techNano2
@@ -61,6 +63,8 @@ autoTriggerCheckRate:everyFrame
 @global tech_satellite: satelliteTech
 @global tech_ballistic1: techBallisticMissiles1
 @global tech_ballistic2: techBallisticMissiles2
+@global tech_space1: techSpace1
+@global tech_space2: techSpace2
 
 [template_buildingUpgrade]
 displayType:upgrade
