@@ -1,7 +1,7 @@
 
 [core]
 class: CustomUnitMetadata
-price: 0
+price: ccredits=0
 maxHp: 0
 mass: 0
 showInEditor:false

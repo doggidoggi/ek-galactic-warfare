@@ -56,7 +56,7 @@ isLockedAlt:if self.resource(greaterThan=0,type='EMP')
 
 [action_orbitalDrop]
 fireTurretXAtGround:orbitalDrop
-price:75000
+price:ccredits=75000
 ai_isDisabled:true
 text:Дроппод
 description:\n-Тяжелобронированная капсула, оснащенная ретро-ракетами\n-Разработана для быстрой доставки

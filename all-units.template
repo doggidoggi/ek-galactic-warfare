@@ -2,6 +2,7 @@
 strictLevel:1
 ignoreInUnitCapCalculation:true
 autoTriggerCooldownTime_allowDangerousHighCPU:true
+autoTriggerCooldownTime: 1s
 @global gtt: self.globalTeamTags
 logIfCreditResourceUsed: true
 autoTriggerCheckRate:everyFrame
@@ -81,9 +82,71 @@ iconExtraImage:ROOT:/ASSETS/ui/action_icons/lore.png
 pos: -10000
 text: Предыстория
 
+[template_timer]
+displayTextPostfix:
+displayPos: -1
+displayWhenZero: true
+displayColor: #e4e3d4ff
+hidden: true
+displayTextPrefix:
+
+[global_resource_ccredits]
+hidden: true
+displayTextPrefix: $
+displayName: $
+displayNameShort: $
+displayWhenZero: false
+displayDigitGrouping: space
+displayRoundedDown: true
+displayColor: #006400
+displayColorUseInText: true
+
+[global_resource_fakecredits]
+hidden: true
+displayTextPrefix: $
+displayName: $
+displayNameShort: $
+displayWhenZero: true
+displayDigitGrouping: space
+displayRoundedDown: true
+displayColor: #00f000
+displayTextAppendResource: fakeincome
+[global_resource_fakeincome]
+hidden: true
+displayTextPrefix: (+
+displayName: (+
+displayNameShort: (+
+displayTextPostfix: )
+displayWhenZero: true
+displayRoundedDown: true
+displayColor: #00f000
+#________________________     Hour
+[global_resource_t_hours_a]
+@copyFromSection: template_timer
+hidden: false
+displayTextAppendResource: t_minutes_a
+displayTextPrefix:Time:     
+#________________________     Minute
+[global_resource_t_minutes_a]
+@copyFromSection: template_timer
+displayTextPrefix: :
+displayTextAppendResource: t_minutes_b
+[global_resource_t_minutes_b]
+@copyFromSection: template_timer
+displayTextAppendResource: t_seconds_a 
+#________________________     Second
+[global_resource_t_seconds_a]
+@copyFromSection: template_timer
+displayTextAppendResource: t_seconds_b 
+displayTextPrefix: :
+[global_resource_t_seconds_b]
+@copyFromSection: template_timer
+displayTextAppendResource: fakecredits
+displayTextAppendResourceWithGap: true
+
 [global_resource_biomass]
 displayName:Биомасса
-displayColor:#186bf0
+displayColor: #186bf0
 displayRoundedDown:true
 iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
 iconImageUseInText: true
