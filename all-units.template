@@ -257,7 +257,6 @@ autoTriggerCheckRate:everyFrame
     displayName:Биомасса:
     displayColor:#3a6904
     displayRoundedDown:true
-    iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
     iconImageUseInText: true
     displayColorUseInText: true
     displayDigitGrouping: space
@@ -272,6 +271,9 @@ autoTriggerCheckRate:everyFrame
     displayColorUseInText: true
     displayDigitGrouping: space
     displayWhenZero:false
+
+    [global_resource_credits]
+    hidden:true
 
     #ORBITAL SIGNAL RESOURCES
 
