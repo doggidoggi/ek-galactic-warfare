@@ -53,14 +53,15 @@ limitingRange:10000
 [projectile_blink]
 directDamage:0
 teleportSource:true
-instant:true
+speed: 500
 life:99999
-speed:1
 targetGround:true
 deflectionPower:-1
 shouldRevealFog:true
 explodeEffect:CUSTOM:blinkFlash,CUSTOM:blinkGlow,CUSTOM:playSound
 effectOnCreate:CUSTOM:blinkGlow
+tags: blink
+invisible: true
 
 [projectile_blinking]
 directDamage:0

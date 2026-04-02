@@ -1,4 +1,5 @@
 [core]
+copyFrom: ROOT:/ASSETS/templates/income.template
 name: sanaCCTemplate
 displayText: Флюксенбург
 class:             CustomUnitMetadata
@@ -16,7 +17,8 @@ energyRegen:       0.0001
 energyNeedsToRechargeToFull: true
 autoRepair: true
 selfRegenRate:0.2
-generation_credits: 25
+generation_resources:ccredits=62
+income: 62
 softCollisionOnAll: 5
 footprint:-1,-1,1,1
 constructionFootprint:-2,-2,2,3

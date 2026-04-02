@@ -1,7 +1,7 @@
 [core]
 copyFrom: ROOT:assets/templates/T1engineer.ini
 name:      builder
-price:     500
+price:     ccredits=500
 maxHp:     170
 mass:      200
 techLevel: 1
@@ -11,7 +11,7 @@ displayRadius: 10
 isBio: false
 showInEditor: false
 canReclaimResources:true
-canRepairUnits : false
+canRepairUnits: false
 canRepairBuildings:true
 autoRepair:true
 nanoRange: 95

@@ -1,6 +1,7 @@
 [core]
 strictLevel:1
 autoTriggerCooldownTime_allowDangerousHighCPU:true
+autoTriggerCooldownTime: 1s
 autoTriggerCheckRate:everyFrame
 
 #GLOBAL VARIABLES
@@ -34,6 +35,8 @@ autoTriggerCheckRate:everyFrame
             @global name_satellite: Спутники
             @global name_ballistic1: Баллистические ракеты I
             @global name_ballistic2: Баллистические ракеты II
+@global name_space1: Космическая Программа I
+@global name_space2: Космическая Программа II
         #TECH TAGS
             @global tech_nano1: techNano1
             @global tech_nano2: techNano2
@@ -62,6 +65,8 @@ autoTriggerCheckRate:everyFrame
             @global tech_satellite: satelliteTech
             @global tech_ballistic1: techBallisticMissiles1
             @global tech_ballistic2: techBallisticMissiles2
+@global tech_space1: techSpace1
+@global tech_space2: techSpace2
         #TECH MULTI
             @global tech_prod1_multi: 1.25
             @global tech_prod2_multi: 1.75
