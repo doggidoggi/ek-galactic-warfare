@@ -1,7 +1,7 @@
 [core]
 name:vision
 class: CustomUnitMetadata
-price:0
+price:0, cash=0
 maxHp:1000
 mass:3000
 techLevel:1

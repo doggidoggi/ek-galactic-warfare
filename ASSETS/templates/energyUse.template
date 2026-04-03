@@ -1,3 +1,6 @@
+[core]
+generation_active: if self.resource.energyCredits > 0
+
 [action_energyCreditsLowGui]
 @copyFromSection: template_situationInfo
 iconExtraImage: ROOT:assets/ui/decals/situations/energy_credits_low.png
@@ -14,7 +17,7 @@ description: Резервы на нуле!\nПроизводство парал�
 
 [decal_energyStable]
 @copyFromSection: template_situation_decal
-isVisible:if self.resource.energyCredits > 0 and self.resource.energyCreditsNet > 0
+isVisible:if self.resource.energyCredits > 0 and self.resource.energyCreditsNet >= 0
 image: ROOT:assets/ui/decals/situations/energy_credits_stable.png
 
 [decal_energyLow]

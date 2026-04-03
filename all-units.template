@@ -3,6 +3,11 @@ strictLevel:1
 autoTriggerCooldownTime_allowDangerousHighCPU:true
 autoTriggerCooldownTime: 1s
 autoTriggerCheckRate:everyFrame
+radius: 5
+
+[hiddenAction_created]
+autoTriggerOnEvent: created
+setResourcesWithLogic: credits=0
 
 #GLOBAL VARIABLES
     @global gtt: self.globalTeamTags
@@ -72,6 +77,21 @@ autoTriggerCheckRate:everyFrame
             @global tech_prod2_multi: 1.75
             @global tech_prod3_multi: 2
 #TEMPLATES
+    #RESOURCES
+        [template_timer]
+        displayTextPostfix:
+        displayPos: -1
+        displayWhenZero: true
+        displayColor: #e4e3d4ff
+        hidden: true
+        displayTextPrefix:
+
+        [template_net]
+        displayTextPrefix:NET (
+        displayTextPostfix:)
+        displayWhenZero:true
+        hidden:true
+
     #ACTIONS
         [template_switchStateAction]
         pos:-3
@@ -114,135 +134,134 @@ autoTriggerCheckRate:everyFrame
         [template_commonEffects]
 
 #GLOBAL RESOURCES
-    [global_resource_alloys]
-    displayName:Энергетические сплавы
-    displayColor:#90A4AE
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/alloys.png
-    iconImageUseInText: true
-    displayColorUseInText: true
-    displayDigitGrouping: space
-    displayWhenZero:true
 
-    [global_resource_minerals]
-    displayName:Минералы
-    displayColor:#90A4AE
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/mineral.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+    # TIMER
+        # HOUR
+            [global_resource_t_hours_a]
+            @copyFromSection: template_timer
+            hidden: false
+            displayTextAppendResource: t_minutes_a
+            displayTextPrefix:[
+        # MINUTE
+            [global_resource_t_minutes_a]
+            @copyFromSection: template_timer
+            displayTextPrefix: :
+            displayTextAppendResource: t_minutes_b
+            [global_resource_t_minutes_b]
+            @copyFromSection: template_timer
+            displayTextAppendResource: t_seconds_a 
+        # SECOND
+            [global_resource_t_seconds_a]
+            @copyFromSection: template_timer
+            displayTextAppendResource: t_seconds_b 
+            displayTextPrefix: :
+            [global_resource_t_seconds_b]
+            @copyFromSection: template_timer
+            displayTextAppendResource: cash
+            displayTextAppendResourceWithGap: true
+            displayTextPostfix: ]
 
-    [global_resource_consumerGood]
-    displayName:Потребительские товары
-    displayColor:#90A4AE
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/consumer_goods.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+    # NOT USED RESOURCES (for other mods to use, not displayed in current)
 
-    [global_resource_exoticGases]
-    displayName:Экзотические газы
-    displayColor:#FF5722
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/exotic_gases.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
-    
-    [global_resource_rareCrystals]
-    displayName:Аксоний
-    displayColor:#3F51B5
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/axonium.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+        [global_resource_consumerGood]
+        displayName:Потребительские товары
+        displayColor:#90A4AE
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/consumer_goods.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_darkMatter]
-    displayName:Темная материя
-    displayColor:#3F51B5
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/dark_matter.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+        [global_resource_exoticGases]
+        displayName:Экзотические газы
+        displayColor:#FF5722
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/exotic_gases.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
+        
+        [global_resource_rareCrystals]
+        displayName:Аксоний
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/axonium.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_nanites]
-    displayName:Наниты
-    displayColor:#3F51B5
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/nanites.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+        [global_resource_darkMatter]
+        displayName:Темная материя
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/dark_matter.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_astralThreads]
-    displayName:Астральные нити
-    displayColor:#3F51B5
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/astral_threads.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+        [global_resource_nanites]
+        displayName:Наниты
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/nanites.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_minorArtifacts]
-    displayName:Мелкие артефакты
-    displayColor:#3F51B5
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/minor_artifacts.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+        [global_resource_astralThreads]
+        displayName:Астральные нити
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/astral_threads.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_tradePotential]
-    displayName:Торговый потенциал
-    displayColor:#2196F3
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/trade_potential.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+        [global_resource_minorArtifacts]
+        displayName:Мелкие артефакты
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/minor_artifacts.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_ideologicalPotential]
-    displayName:Идеологический потенциал
-    displayColor:#2196F3
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/ideological_potential.png
-    iconImageUseInText: true
-    displayDigitGrouping: space
-    displayColorUseInText: true
-    displayWhenZero:true
+        [global_resource_tradePotential]
+        displayName:Торговый потенциал
+        displayColor:#2196F3
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/trade_potential.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_scientificPotential]
-    displayName:Научный потенциал
-    displayColor:#2196F3
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/scientific_potential.png
-    iconImageUseInText: true
-    displayColorUseInText: true
-    displayDigitGrouping: space
-    displayWhenZero:true
+        [global_resource_ideologicalPotential]
+        displayName:Идеологический потенциал
+        displayColor:#2196F3
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/ideological_potential.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-    [global_resource_influence]
-    displayName:Влияние
-    displayColor:#81C784
-    displayRoundedDown:true
-    iconImage:ROOT:assets/ui/resource_icons/influence.png
-    iconImageUseInText: true
-    displayColorUseInText: true
-    displayDigitGrouping: space
-    displayWhenZero:true
+        [global_resource_influence]
+        displayName:Влияние
+        displayColor:#81C784
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/influence.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:false
     
     #ENERGY
         [global_resource_energyCredits]
@@ -254,31 +273,106 @@ autoTriggerCheckRate:everyFrame
         displayDigitGrouping: space
         displayColorUseInText: true
         displayWhenZero:true
+        displayTextAppendResource: energyCreditsNet
+        displayTextAppendResourceWithGap: true
 
         [global_resource_energyCreditsNet]
-        hidden:false
+        @copyFromSection: template_net
+        displayColor:#F4A900
 
-    [global_resource_biomass]
-    displayName:Биомасса:
-    displayColor:#3a6904
-    displayRoundedDown:true
-    iconImageUseInText: true
-    displayColorUseInText: true
-    displayDigitGrouping: space
-    displayWhenZero:false
+    # SCIENTIFIC POTENTIAL
+        [global_resource_scientificPotential]
+        displayName:Научный потенциал
+        displayColor:#2196F3
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/scientific_potential.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:true
+        displayTextAppendResource: scientificPotentialNet
+        displayTextAppendResourceWithGap: true
 
-    [global_resource_genom]
-    displayName:Геном
+        [global_resource_scientificPotentialNet]
+        @copyFromSection: template_net
+        displayColor:#2196F3
+
+    # ALLOYS
+        [global_resource_alloys]
+        displayName:Энергетические сплавы
+        displayColor:#90A4AE
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/alloys.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:true
+        displayTextAppendResource: alloysNet
+        displayTextAppendResourceWithGap: true
+
+        [global_resource_alloysNet]
+        @copyFromSection: template_net
+        displayColor:#90A4AE
+    
+    # MINERALS
+        [global_resource_minerals]
+        displayName:Минералы
+        displayColor:#90A4AE
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/mineral.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:true
+        displayTextAppendResource: mineralsNet
+        displayTextAppendResourceWithGap: true
+
+        [global_resource_mineralsNet]
+        @copyFromSection: template_net
+        displayColor:#90A4AE
+
+    # BUG FACTION RESOURCES
+        [global_resource_biomass]
+        displayName:Биомасса:
+        displayColor:#3a6904
+        displayRoundedDown:true
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:false
+
+        [global_resource_genom]
+        displayName:Геном
+        displayColor:#0b6b41
+        displayRoundedDown:true
+        iconImage:ROOT:ASSETS/ui/resource_icons/genom.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:false
+
+    [global_resource_cash]
+    displayName:Кредиты
+    displayNameShort:$
+    displayTextPrefix:$
     displayColor:#0b6b41
-    displayRoundedDown:true
-    iconImage:ROOT:ASSETS/ui/resource_icons/genom.png
-    iconImageUseInText: true
-    displayColorUseInText: true
-    displayDigitGrouping: space
-    displayWhenZero:false
-
-    [global_resource_credits]
     hidden:true
+    displayWhenZero:true
+    displayTextAppendResource: cashNet
+    displayTextAppendResourceWithGap: true
+
+    [global_resource_cashNet]
+    @copyFromSection: template_net
+    displayColor:#0b6b41
+
+    [global_resource_marketSaturation]
+    displayName:MARKET_SATURATION_DEBUG
+    displayColor:#C9A227
+    displayWhenZero:true
+    hidden:false
+
+    [global_resource_marketSaturationNet]
+    hidden:true 
 
     #ORBITAL SIGNAL RESOURCES
 
@@ -351,7 +445,7 @@ autoTriggerCheckRate:everyFrame
     onlyWhenSelectedByAnyPlayer: true
     imageScale: ${core.radius}*0.003
     alwaysStartDirAtZero: true
-    layer: afterBody
+    layer: shadow
 
 [resource_indirectKills]
 displayName: Indirect Kills

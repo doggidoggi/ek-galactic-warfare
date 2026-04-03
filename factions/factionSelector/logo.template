@@ -1,7 +1,7 @@
 [core]
 showInEditor:false
 class: CustomUnitMetadata
-price: 0
+price:0, cash=0
 maxHp: 0
 mass: 99999
 radius: 10

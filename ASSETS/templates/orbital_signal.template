@@ -17,7 +17,7 @@ addResources:signal=-0.5
 
 [action_countAmmo]
 addResources:MSite=1
-price:MSite=1
+price:0,MSite=1
 text:Военные активы:
 description:-Количественная оценка всех военных активов на орбите\n-Спутники связи, платформы вооружения, военные станции
 displayType:infoOnly
@@ -27,7 +27,7 @@ displayRemainingStockpile:true
 isActive:false
 [action_countEnergy]
 addResources:ESite=1
-price:ESite=1
+price:0,ESite=1
 text:Энергетические активы:
 description:-Количественная оценка всех орбитальных энергетических активов\n-Спутники передачи энергии, рои Дайсона, заправочные станции
 displayType:infoOnly
@@ -38,7 +38,7 @@ isActive:false
 
 [action_sensorPing]
 fireTurretXAtGround:sensorPing
-price:MSite=5
+price:0,MSite=5
 ai_isDisabled:true
 text:Спутниковое картографирование
 description:-СТОИМОСТЬ: 5 Военных активов\n-\n-Организует полет военного спутника над областью и сбор разведданных\n-Открывает умеренную область карты на 10 секунд
@@ -56,7 +56,7 @@ isLockedAlt:if self.resource(greaterThan=0,type='EMP')
 
 [action_orbitalDrop]
 fireTurretXAtGround:orbitalDrop
-price:ccredits=75000
+price:0,cash=75000
 ai_isDisabled:true
 text:Дроппод
 description:\n-Тяжелобронированная капсула, оснащенная ретро-ракетами\n-Разработана для быстрой доставки
@@ -75,7 +75,7 @@ playSoundAtUnit:ROOT:assets/sounds/reinforce_message.ogg:3.5
 
 [action_shieldJammer]
 fireTurretXAtGround:shieldJammer
-price:ESite=20
+price:0,ESite=20
 ai_isDisabled:true
 text:Щит-глушилка
 description:-СТОИМОСТЬ: 20 Энергетических активов\n-Орбитальная станция будет бомбардировать область резонирующими электромагнитными волнами\n-Перегружает все системы щитов в целевой области на 20 секунд
@@ -93,7 +93,7 @@ isLockedAlt:if self.resource(greaterThan=0,type='EMP')
 
 [action_nanoBeam]
 fireTurretXAtGround:nanoBeam
-price:ESite=20
+price:0,ESite=20
 ai_isDisabled:true
 text:Нано перезарядка
 description:-СТОИМОСТЬ: 20 Энергетических активов\n-Перезаряжает системы наноремонта в фиксированном радиусе посредством электрической индукции\n-Эта сила позволяет всем транспортным средствам ремонтироваться со значительно ускоренной скоростью
@@ -112,7 +112,7 @@ isLockedAlt:if self.resource(greaterThan=0,type='EMP')
 
 [action_kineticStrike]
 fireTurretXAtGround:kineticStrike
-price:MSite=40
+price:0,MSite=40
 ai_isDisabled:true
 text:Кинетический удар
 description:-СТОИМОСТЬ: 30 Военных активов\n-Большой невзрывоопасный снаряд, который замедляется с орбиты, чтобы поразить целевую область
@@ -131,7 +131,7 @@ playSoundAtUnit:ROOT:assets/sounds/orbital_strike_message.ogg:3.5
 
 [action_dysonBeam]
 fireTurretXAtGround:dysonBeam
-price:ESite=50
+price:0,ESite=50
 ai_isDisabled:true
 text:Луч Дайсона
 description:-СТОИМОСТЬ: 50 Энергетических активов\n-Солнечная энергия, направляемая и фокусируемая в узкий луч с помощью ряда спутников\n-Длится 10 секунд, прежде чем исчезнуть\n-Можно отдать приказ перенаправить луч
@@ -150,7 +150,7 @@ playSoundAtUnit:ROOT:assets/sounds/orbital_strike_message.ogg:3.5
 
 [action_dirtyBomb]
 fireTurretXAtGround:dirtyBomb
-price:MSite=150
+price:0,MSite=150
 ai_isDisabled:true
 text:Грязная бомба
 description:-СТОИМОСТЬ: 350 Военных активов\n-Нестандартное ядерное оружие со сравнительно меньшей взрывной силой\n-Предназначено для рассеивания неиспользованного расщепляющегося материала в атмосфере с целью создания облака разрушительной радиации\n-(Длится 4 минуты)
@@ -169,7 +169,7 @@ playSoundAtUnit:ROOT:assets/sounds/orbital_strike_message.ogg:3.5
 
 [action_mirv]
 fireTurretXAtGround:mirv
-price:MSite=40
+price:0,MSite=40
 text:M.I.R.V.
 description:-СТОИМОСТЬ: 40 Военных активов\n-Независимая боеголовка\n-Запускает 8 миниатюрных боеголовок, которые разбрасываются по целевой области\n-Сама по себе слаба, но способна перегружать системы обороны
 ai_isDisabled:true

@@ -1,0 +1,9 @@
+[template_stopOutputOnNoReserve_off]
+autoTrigger: if self.resource(type='${reserveResource}') < 0 and not self.tags(includes='${outageTag}')
+temporarilyAddTags: ${outageTag}
+addResources: ${outputNetResource1}=-${outputAmount1}, ${outputNetResource2}=-${outputAmount2}
+
+[template_stopOutputOnNoReserve_on]
+autoTrigger: if self.resource(type='${reserveResource}') >= 0 and self.tags(includes='${outageTag}')
+temporarilyRemoveTags: ${outageTag}
+addResources: ${outputNetResource1}=${outputAmount1}, ${outputNetResource2}=${outputAmount2}

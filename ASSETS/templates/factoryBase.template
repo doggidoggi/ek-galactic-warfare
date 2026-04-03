@@ -10,7 +10,7 @@ descriptionAddUnitStats: ${unit}
 unitShownInUI: ${unit}
 isVisible: true
 alsoTriggerAction:${unit}2
-alsoTriggerOrQueueActionConditional:if memory.recursiveBuild == true and self.hasResources(credits=${section.price})
+alsoTriggerOrQueueActionConditional:if memory.recursiveBuild == true and self.hasResources(cash=${section.price})
 
 [template_landFacBuildActionBase]
 @copyFromSection: template_buildAction

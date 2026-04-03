@@ -27,7 +27,7 @@ explodeOnEndOfLife:true
 
 [action_导弹准备开火]
 isVisible:true
-price:0
+price:0, cash=0
 text:导弹开火
 description: 
 displayType: action

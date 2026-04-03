@@ -6,7 +6,7 @@ displayDescription:-Medium armed mecha\n-capable of handling most combat situati
 displayText_zh:权天使级中型机甲
 displayDescription_zh:中型通用机甲，足以应对大多数情况的战斗能力\n-两套“地狱火”远程防空散射导弹系统\n-两套并联式30mm滑膛链式机炮系统\n-散射严重的对地炮击\n-防空能力比对地能力更为强悍
 class:CustomUnitMetadata
-price:15000
+price:0, cash=15000
 maxHp:2500
 mass:14000
 techLevel:2
