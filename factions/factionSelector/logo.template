@@ -1,0 +1,40 @@
+[core]
+showInEditor:false
+class: CustomUnitMetadata
+price:0, cash=0
+maxHp: 0
+mass: 99999
+radius: 10
+fogOfWarSightRange:0
+isBuilding:true
+isUnrepairableUnit: true
+ignoreInUnitCapCalculation:true
+hideScorchMark:true
+disableDeathOnZeroHp:true
+isUnselectable:true
+
+[hiddenAction_start]
+autoTrigger: if self.globalTeamTags(includes="READY")
+deleteSelf:true
+
+[graphics]
+imageScale:0.05
+rotate_with_direction:false
+image_shadow:AUTO
+shadowOffsetX:3
+shadowOffsetY:3
+
+[attack]
+canAttack: false
+canAttackFlyingUnits: false
+canAttackLandUnits:   false
+canAttackUnderwaterUnits: false
+maxAttackRange: 0
+
+[movement]
+movementType: NONE
+moveSpeed: 0
+moveAccelerationSpeed: 0.01
+moveDecelerationSpeed: 0.01
+maxTurnSpeed: 0
+turnAcceleration: 0.1

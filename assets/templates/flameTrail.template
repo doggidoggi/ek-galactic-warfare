@@ -1,0 +1,18 @@
+[effect_flameTrail]
+createWhenOffscreen:true
+showInFog:true
+#alsoPlaySound: ROOT:shared/sounds/trail_normal00.ogg: 0.05
+life: 60
+alpha: 0.3
+atmospheric:true
+fadeInTime: 5
+fadeOut:true
+image: ROOT:shared/graphicsEffects/trail.png
+xSpeedAbsoluteRandom: 0.1
+ySpeedAbsoluteRandom: 0.1
+ySpeedRelative: -0.5
+hSpeed:0.1
+attachedToUnit: false
+drawUnderUnits: true
+imageShadow: ROOT:shared/graphicsEffects/trail.png
+dirOffsetRandom: 10

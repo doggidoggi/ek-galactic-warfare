@@ -1,6 +1,0 @@
-[core]
-@memory EZRG_Width: float
-
-[hiddenAction_EZRG_CreateWidth]
-autoTriggerOnEvent: created
-setUnitMemory: EZRG_Width=${core.radius}

@@ -1,6 +1,0 @@
-[hiddenAction_iscreated]
-autoTriggerOnEvent: completeAndActive
-addResourcesWithLogic: fakeincome=${core.income}
-[hiddenAction_isdestroyed]
-autoTriggerOnEvent: destroyed
-addResourcesWithLogic: fakeincome=-${core.income}

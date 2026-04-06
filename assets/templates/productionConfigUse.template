@@ -1,0 +1,6 @@
+
+[hiddenAction_powerOff]
+@copyFromSection: template_outageConfig, template_stopOutputOnNoReserve_off
+
+[hiddenAction_powerOn]
+@copyFromSection: template_outageConfig, template_stopOutputOnNoReserve_on

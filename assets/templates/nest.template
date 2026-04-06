@@ -1,0 +1,24 @@
+[core]
+isBio: true
+isBug: true
+isBuilding: true
+
+[hiddenAction_resetBoost]
+autoTrigger:if not self.globalTeamTags(includes="bugtechEgg1") and not self.globalTeamTags(includes="bugtechEgg2") and not self.globalTeamTags(includes="bugtechEgg3") 
+setUnitStats:nanoFactorySpeed=1
+
+[hiddenAction_boost1]
+autoTrigger:if self.globalTeamTags(includes="bugtechEgg1")
+setUnitStats:nanoFactorySpeed=1.5
+
+[hiddenAction_boost2]
+autoTrigger:if self.globalTeamTags(includes="bugtechEgg2")
+setUnitStats:nanoFactorySpeed=2
+
+[hiddenAction_boost3]
+autoTrigger:if self.globalTeamTags(includes="bugtechEgg3")
+setUnitStats:nanoFactorySpeed=2.5
+
+[hiddenAction_boost]
+autoTrigger: if self.globalTeamTags(includes='techEggs1')
+setUnitStats: nanoFactorySpeed=1.5

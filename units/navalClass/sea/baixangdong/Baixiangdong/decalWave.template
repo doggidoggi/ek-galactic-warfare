@@ -1,0 +1,74 @@
+
+[core]
+@memory moveWaveAnimFrame: float
+@global moveAnimeMinSpeed: 0.25
+@memory speedFliped: bool
+
+updateUnitMemory: moveWaveAnimFrame=memory.moveWaveAnimFrame+self.speed()*2, speedFliped=select((memory.speedFliped != self.isReversing and self.speed < ${movement.moveSpeed}/8), self.isReversing, memory.speedFliped)
+updateUnitMemoryRate: 0.033s
+
+[graphics]
+movementEffect: NONE
+splastEffect: false
+
+[template_anyBodyComponentDecal]
+onlyWhileAlive: true
+#Should not be visible when very zoomed out
+onlyWithZoomLevelOrMore: 0.275
+teamColors: true
+layer: afterBody
+dirOffset: 0
+hOffset: 0
+imageScale: ${graphics.imageScale}
+
+[decal_waveFront]
+@copyFromSection: template_anyBodyComponentDecal
+@define animationCycleTimeRatio: 3.7
+@define animationCycleOffsetRatio: 0
+@define scaleFactor: 0.03
+@define offsetFactor: 1.3
+@define baseAlpha: 0.9
+layer: shadow
+image: rippleFront_offset.png
+#wakefront_offset.png
+#hOffset: ${-1*movement.targetHeight}
+hOffset: 0
+#isVisible: if self.isOverWater and not self.isUnderWater
+teamColors: false
+imageScaleX: 1
+xOffsetRelative: 0
+yOffsetRelative: ${core.radius * 0.85 * offsetFactor}
+#Should always visible in UI, even very zoomed out
+onlyWithZoomLevelOrMore: 0.4
+imageScale: ${scaleFactor * (core.radius * 0.5 + 7.5)} * ((memory.moveWaveAnimFrame + ${animationCycleTimeRatio*animationCycleOffsetRatio*core.radius}) % ${animationCycleTimeRatio*core.radius}) / ${animationCycleTimeRatio*core.radius}
+alpha: (self.speed/3+self.speed/${movement.moveSpeed+0.1}) * ${baseAlpha} * (${animationCycleTimeRatio*core.radius} - ((memory.moveWaveAnimFrame + ${animationCycleTimeRatio*animationCycleOffsetRatio*core.radius}) % ${animationCycleTimeRatio*core.radius})) / ${animationCycleTimeRatio*core.radius}
+imageScaleY: select(memory.speedFliped, -1, 1)
+onlyOnNonPreview: true
+[decal_waveFront2]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.25
+imageScaleX: ${-1*decal_waveFront.imageScaleX}
+[decal_waveFront3]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.5
+[decal_waveFront4]
+@copyFromSection: decal_waveFront
+@define animationCycleOffsetRatio: 0.75
+imageScaleX: ${-1*decal_waveFront.imageScaleX}
+
+[decal_waveBack]
+@copyFromSection: decal_waveFront
+@define animationCycleTimeRatio: 2.6
+@define offsetFactor: -0.65
+image: rippleBack_offset.png
+[decal_waveBack2]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.25
+imageScaleX: ${-1*decal_waveBack.imageScaleX}
+[decal_waveBack3]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.5
+[decal_waveBack4]
+@copyFromSection: decal_waveBack
+@define animationCycleOffsetRatio: 0.75
+imageScaleX: ${-1*decal_waveBack.imageScaleX}

@@ -1,257 +1,451 @@
 [core]
 strictLevel:1
-ignoreInUnitCapCalculation:true
 autoTriggerCooldownTime_allowDangerousHighCPU:true
 autoTriggerCooldownTime: 1s
-@global gtt: self.globalTeamTags
-logIfCreditResourceUsed: true
 autoTriggerCheckRate:everyFrame
+radius: 5
 
-@global name_nano1: Нанорепликация I
-@global name_nano2: Нанорепликация II
-@global name_nano3: Нанорепликация III
-@global name_prod1: Продуктивность I
-@global name_prod2: Продуктивность II
-@global name_prod3: Продуктивность III
-@global name_stealth: Стелс-технологии
-@global name_hyperdrive: Гипердрайв
-@global name_infantry1: Пехота I
-@global name_infantry2: Пехота II
-@global name_infantry3: Пехота III
-@global name_tanks1: Танки I
-@global name_tanks2: Танки II
-@global name_tanks3: Танки III
-@global name_mech: Тяжелые мехи
-@global name_aircraft1: Авиация I
-@global name_aircraft2: Авиация II
-@global name_aircraft3: Авиация III
-@global name_ships1: Корабли I
-@global name_ships2: Корабли II
-@global name_economy1: Экономика I
-@global name_economy2: Экономика II
-@global name_defence1: Оборона I
-@global name_defence2: Оборона II
-@global name_satellite: Спутники
-@global name_ballistic1: Баллистические ракеты I
-@global name_ballistic2: Баллистические ракеты II
+[hiddenAction_created]
+autoTriggerOnEvent: created
+setResourcesWithLogic: credits=0
+
+#GLOBAL VARIABLES
+    @global gtt: self.globalTeamTags
+    #TECH VARIABLES
+        #TECH NAMES
+            @global name_nano1: Нанорепликация I
+            @global name_nano2: Нанорепликация II
+            @global name_nano3: Нанорепликация III
+            @global name_prod1: Продуктивность I
+            @global name_prod2: Продуктивность II
+            @global name_prod3: Продуктивность III
+            @global name_stealth: Стелс-технологии
+            @global name_hyperdrive: Гипердрайв
+            @global name_infantry1: Пехота I
+            @global name_infantry2: Пехота II
+            @global name_infantry3: Пехота III
+            @global name_tanks1: Танки I
+            @global name_tanks2: Танки II
+            @global name_tanks3: Танки III
+            @global name_mech: Тяжелые мехи
+            @global name_aircraft1: Авиация I
+            @global name_aircraft2: Авиация II
+            @global name_aircraft3: Авиация III
+            @global name_ships1: Корабли I
+            @global name_ships2: Корабли II
+            @global name_economy1: Экономика I
+            @global name_economy2: Экономика II
+            @global name_defence1: Оборона I
+            @global name_defence2: Оборона II
+            @global name_satellite: Спутники
+            @global name_ballistic1: Баллистические ракеты I
+            @global name_ballistic2: Баллистические ракеты II
 @global name_space1: Космическая Программа I
 @global name_space2: Космическая Программа II
-
-@global tech_nano1: techNano1
-@global tech_nano2: techNano2
-@global tech_nano3: techNano3
-@global tech_prod1: techProd1
-@global tech_prod2: techProd2
-@global tech_prod3: techProd3
-@global tech_stealth: techStealth
-@global tech_hyperdrive: techHyperdrive
-@global tech_infantry1: techInfantry1
-@global tech_infantry2: techInfantry2
-@global tech_infantry3: techInfantry3
-@global tech_tanks1: techTanks1
-@global tech_tanks2: techTanks2
-@global tech_tanks3: techTanks3
-@global tech_mech: mechTech
-@global tech_aircraft1: techAircraft1
-@global tech_aircraft2: techAircraft2
-@global tech_aircraft3: techAircraft3
-@global tech_ships1: techShips1
-@global tech_ships2: techShips2
-@global tech_economy1: techEconomy1
-@global tech_economy2: techEconomy2
-@global tech_defence1: techDefence1
-@global tech_defence2: techDefence2
-@global tech_satellite: satelliteTech
-@global tech_ballistic1: techBallisticMissiles1
-@global tech_ballistic2: techBallisticMissiles2
+        #TECH TAGS
+            @global tech_nano1: techNano1
+            @global tech_nano2: techNano2
+            @global tech_nano3: techNano3
+            @global tech_prod1: techProd1
+            @global tech_prod2: techProd2
+            @global tech_prod3: techProd3
+            @global tech_stealth: techStealth
+            @global tech_hyperdrive: techHyperdrive
+            @global tech_infantry1: techInfantry1
+            @global tech_infantry2: techInfantry2
+            @global tech_infantry3: techInfantry3
+            @global tech_tanks1: techTanks1
+            @global tech_tanks2: techTanks2
+            @global tech_tanks3: techTanks3
+            @global tech_mech: mechTech
+            @global tech_aircraft1: techAircraft1
+            @global tech_aircraft2: techAircraft2
+            @global tech_aircraft3: techAircraft3
+            @global tech_ships1: techShips1
+            @global tech_ships2: techShips2
+            @global tech_economy1: techEconomy1
+            @global tech_economy2: techEconomy2
+            @global tech_defence1: techDefence1
+            @global tech_defence2: techDefence2
+            @global tech_satellite: satelliteTech
+            @global tech_ballistic1: techBallisticMissiles1
+            @global tech_ballistic2: techBallisticMissiles2
 @global tech_space1: techSpace1
 @global tech_space2: techSpace2
+        #TECH MULTI
+            @global tech_prod1_multi: 1.25
+            @global tech_prod2_multi: 1.75
+            @global tech_prod3_multi: 2
+#TEMPLATES
+    #RESOURCES
+        [template_timer]
+        displayTextPostfix:
+        displayPos: -1
+        displayWhenZero: true
+        displayColor: #e4e3d4ff
+        hidden: true
+        displayTextPrefix:
 
-[template_buildingUpgrade]
-displayType:upgrade
-pos:-1000
-buildSpeed: 60s
-iconExtraImage: SHARED:icon_upgrade_top.png
-iconExtraColor: #AAFFFFFF
+        [template_net]
+        displayTextPrefix:NET (
+        displayTextPostfix:)
+        displayWhenZero:true
+        hidden:true
 
-[template_showLoreAction]
-displayType: infoOnlyNoBox
-isVisible:true
-isActive:false
-iconExtraImage:ROOT:/ASSETS/ui/action_icons/lore.png
-pos: -10000
-text: Предыстория
+    #ACTIONS
+        [template_switchStateAction]
+        pos:-3
+        displayType: rally
+        buildSpeed: 0
+        highPriorityQueue: true
+        unitShownInUI:NONE
+        alwaysSinglePress: true
 
-[template_timer]
-displayTextPostfix:
-displayPos: -1
-displayWhenZero: true
-displayColor: #e4e3d4ff
-hidden: true
-displayTextPrefix:
+        [template_situationInfo]
+        pos:-4
+        isActive:false
+        displayType: infoOnly
+        isGuiBlinking: true
 
-[global_resource_ccredits]
-hidden: true
-displayTextPrefix: $
-displayName: $
-displayNameShort: $
-displayWhenZero: false
-displayDigitGrouping: space
-displayRoundedDown: true
-displayColor: #006400
-displayColorUseInText: true
+        [template_buildingUpgrade]
+        displayType:upgrade
+        pos:-1000
+        buildSpeed: 60s
+        iconExtraImage: SHARED:icon_upgrade_top.png
+        iconExtraColor: #AAFFFFFF
 
-[global_resource_fakecredits]
-hidden: true
-displayTextPrefix: $
-displayName: $
-displayNameShort: $
-displayWhenZero: true
-displayDigitGrouping: space
-displayRoundedDown: true
-displayColor: #00f000
-displayTextAppendResource: fakeincome
-[global_resource_fakeincome]
-hidden: true
-displayTextPrefix: (+
-displayName: (+
-displayNameShort: (+
-displayTextPostfix: )
-displayWhenZero: true
-displayRoundedDown: true
-displayColor: #00f000
-#________________________     Hour
-[global_resource_t_hours_a]
-@copyFromSection: template_timer
-hidden: false
-displayTextAppendResource: t_minutes_a
-displayTextPrefix:Time:     
-#________________________     Minute
-[global_resource_t_minutes_a]
-@copyFromSection: template_timer
-displayTextPrefix: :
-displayTextAppendResource: t_minutes_b
-[global_resource_t_minutes_b]
-@copyFromSection: template_timer
-displayTextAppendResource: t_seconds_a 
-#________________________     Second
-[global_resource_t_seconds_a]
-@copyFromSection: template_timer
-displayTextAppendResource: t_seconds_b 
-displayTextPrefix: :
-[global_resource_t_seconds_b]
-@copyFromSection: template_timer
-displayTextAppendResource: fakecredits
-displayTextAppendResourceWithGap: true
+        [template_showLoreAction]
+        displayType: infoOnlyNoBox
+        isVisible:true
+        isActive:false
+        iconExtraImage:ROOT:assets/ui/action_icons/lore.png
+        pos: -10000
+        text: Предыстория
+    #DECALS
+        [template_situation_decal]
+        onlyTeam: own
+        onlyOnNonPreview: true
+        imageScale:0.5
+        alpha: 0.5
+        alwayStartDirAtZero:true
+        yOffsetAbsolute: -${core.radius}*1.25
+        xOffsetAbsolute: ${core.radius}*0.98
+    #EFFECTS
+        [template_commonEffects]
 
-[global_resource_biomass]
-displayName:Биомасса
-displayColor: #186bf0
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
-iconImageUseInText: true
-displayColorUseInText: true
-displayDigitGrouping: space
-displayWhenZero:false
+#GLOBAL RESOURCES
 
-[global_resource_genom]
-displayName:Геном
-displayColor:#186bf0
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
-iconImageUseInText: true
-displayColorUseInText: true
-displayDigitGrouping: space
-displayWhenZero:false
+    # TIMER
+        # HOUR
+            [global_resource_t_hours_a]
+            @copyFromSection: template_timer
+            hidden: false
+            displayTextAppendResource: t_minutes_a
+            displayTextPrefix:[
+        # MINUTE
+            [global_resource_t_minutes_a]
+            @copyFromSection: template_timer
+            displayTextPrefix: :
+            displayTextAppendResource: t_minutes_b
+            [global_resource_t_minutes_b]
+            @copyFromSection: template_timer
+            displayTextAppendResource: t_seconds_a 
+        # SECOND
+            [global_resource_t_seconds_a]
+            @copyFromSection: template_timer
+            displayTextAppendResource: t_seconds_b 
+            displayTextPrefix: :
+            [global_resource_t_seconds_b]
+            @copyFromSection: template_timer
+            displayTextAppendResource: cash
+            displayTextAppendResourceWithGap: true
+            displayTextPostfix: ]
 
-[global_resource_tech]
-displayName:Технологические очки
-displayColor:#186bf0
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/tech.png
-iconImageUseInText: true
-displayColorUseInText: true
-displayDigitGrouping: space
-displayWhenZero:false
+    # NOT USED RESOURCES (for other mods to use, not displayed in current)
 
-[global_resource_experimental]
-displayName:Энергетические сплавы
-displayColor:#00B7EB
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/experimental.png
-iconImageUseInText: true
-displayColorUseInText: true
-displayDigitGrouping: space
-displayWhenZero:false
+        [global_resource_consumerGood]
+        displayName:Потребительские товары
+        displayColor:#90A4AE
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/consumer_goods.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-[global_resource_crystalline]
-displayName:Кристаллин
-displayColor:#FFDF64
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/crystalline.png
-iconImageUseInText: true
-displayDigitGrouping: space
-displayColorUseInText: true
-displayWhenZero:false
+        [global_resource_exoticGases]
+        displayName:Экзотические газы
+        displayColor:#FF5722
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/exotic_gases.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
+        
+        [global_resource_rareCrystals]
+        displayName:Аксоний
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/axonium.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-[global_resource_electricity]
-displayName:Энергокредиты
-displayColor:#F4A900
-displayRoundedDown:true
-iconImage:ROOT:ASSETS/ui/resource_icons/energy.png
-displayDigitGrouping: space
-displayColorUseInText: true
-displayWhenZero:false
+        [global_resource_darkMatter]
+        displayName:Темная материя
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/dark_matter.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
 
-[global_resource_MSite]
-displayName:Military Satellite
-displayNameShort:MSite
-displayColor:#37ba00
-[global_resource_ESite]
-displayName:Energy Satellite
-displayNameShort:ESite
-displayColor:#37ba00
-[resource_EMP]
-displayName:EMP
-displayName_zh:电磁脉冲
-hidden:true
-[hiddenAction_EMP_activate]
-autoTrigger:if self.resource(greaterThan=0,type='EMP')
-setUnitStats:moveSpeed=0,maxTurnSpeed=0,maxAttackRange=0,nanoRange=0,selfRegenRate=0
-clearAllWaypoints:true
-[hiddenAction_EMP_limit]
-autoTrigger:if self.resource(greaterThan=5,type='EMP')
-resourceAmount:EMP
-resourceAmount_setValue:5
-[hiddenAction_EMP_decrease]
-autoTrigger:if self.resource(greaterThan=1,type='EMP')
-addResources:EMP=-1
-[hiddenAction_EMP_deactivate]
-autoTrigger:if self.resource(greaterThan=0,lessThan=2,type='EMP')
-resourceAmount:EMP
-resourceAmount_setValue:0
-resetUnitStats:true
-[resource_抛锚可见]
-hidden:false
-displayName:抛锚可见
-displayColor:#FFFFFF
-[resource_小导弹]
-displayName:小导弹
-[resource_大导弹]
-displayName:大导弹
-[resource_全打击]
-displayName:全打击
-[global_resource_定位加入]
-hidden:true
-[global_resource_开火]
-hidden:true
-displayName:开火
-[global_resource_开始供应]
-hidden:true
-displayName:开始供应
-[resource_Po]
-hidden:false
-displayName:Po
+        [global_resource_nanites]
+        displayName:Наниты
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/nanites.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
+
+        [global_resource_astralThreads]
+        displayName:Астральные нити
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/astral_threads.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
+
+        [global_resource_minorArtifacts]
+        displayName:Мелкие артефакты
+        displayColor:#3F51B5
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/minor_artifacts.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
+
+        [global_resource_tradePotential]
+        displayName:Торговый потенциал
+        displayColor:#2196F3
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/trade_potential.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
+
+        [global_resource_ideologicalPotential]
+        displayName:Идеологический потенциал
+        displayColor:#2196F3
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/ideological_potential.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:false
+
+        [global_resource_influence]
+        displayName:Влияние
+        displayColor:#81C784
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/influence.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:false
+    
+    #ENERGY
+        [global_resource_energyCredits]
+        displayName:Энергокредиты
+        displayColor:#F4A900
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/energy.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:true
+        displayTextAppendResource: energyCreditsNet
+        displayTextAppendResourceWithGap: true
+
+        [global_resource_energyCreditsNet]
+        @copyFromSection: template_net
+        displayColor:#F4A900
+
+    # SCIENTIFIC POTENTIAL
+        [global_resource_scientificPotential]
+        displayName:Научный потенциал
+        displayColor:#2196F3
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/scientific_potential.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:true
+        displayTextAppendResource: scientificPotentialNet
+        displayTextAppendResourceWithGap: true
+
+        [global_resource_scientificPotentialNet]
+        @copyFromSection: template_net
+        displayColor:#2196F3
+
+    # ALLOYS
+        [global_resource_alloys]
+        displayName:Энергетические сплавы
+        displayColor:#90A4AE
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/alloys.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:true
+        displayTextAppendResource: alloysNet
+        displayTextAppendResourceWithGap: true
+
+        [global_resource_alloysNet]
+        @copyFromSection: template_net
+        displayColor:#90A4AE
+    
+    # MINERALS
+        [global_resource_minerals]
+        displayName:Минералы
+        displayColor:#90A4AE
+        displayRoundedDown:true
+        iconImage:ROOT:assets/ui/resource_icons/mineral.png
+        iconImageUseInText: true
+        displayDigitGrouping: space
+        displayColorUseInText: true
+        displayWhenZero:true
+        displayTextAppendResource: mineralsNet
+        displayTextAppendResourceWithGap: true
+
+        [global_resource_mineralsNet]
+        @copyFromSection: template_net
+        displayColor:#90A4AE
+
+    # BUG FACTION RESOURCES
+        [global_resource_biomass]
+        displayName:Биомасса:
+        displayColor:#3a6904
+        displayRoundedDown:true
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:false
+
+        [global_resource_genom]
+        displayName:Геном
+        displayColor:#0b6b41
+        displayRoundedDown:true
+        iconImage:ROOT:ASSETS/ui/resource_icons/genom.png
+        iconImageUseInText: true
+        displayColorUseInText: true
+        displayDigitGrouping: space
+        displayWhenZero:false
+
+    [global_resource_cash]
+    displayName:Кредиты
+    displayNameShort:$
+    displayTextPrefix:$
+    displayColor:#0b6b41
+    hidden:true
+    displayWhenZero:true
+    displayTextAppendResource: cashNet
+    displayTextAppendResourceWithGap: true
+
+    [global_resource_cashNet]
+    @copyFromSection: template_net
+    displayColor:#0b6b41
+
+    [global_resource_marketSaturation]
+    displayName:MARKET_SATURATION_DEBUG
+    displayColor:#C9A227
+    displayWhenZero:true
+    hidden:false
+
+    [global_resource_marketSaturationNet]
+    hidden:true 
+
+    #ORBITAL SIGNAL RESOURCES
+
+        [global_resource_MSite]
+        displayName:Military Satellite
+        displayNameShort:MSite
+        displayColor:#37ba00
+
+        [global_resource_ESite]
+        displayName:Energy Satellite
+        displayNameShort:ESite
+        displayColor:#37ba00
+
+        [resource_EMP]
+        displayName:EMP
+        displayName_zh:电磁脉冲
+        hidden:true
+
+        [hiddenAction_EMP_activate]
+        autoTrigger:if self.resource(greaterThan=0,type='EMP')
+        setUnitStats:moveSpeed=0,maxTurnSpeed=0,maxAttackRange=0,nanoRange=0,selfRegenRate=0
+        clearAllWaypoints:true
+
+        [hiddenAction_EMP_limit]
+        autoTrigger:if self.resource(greaterThan=5,type='EMP')
+        resourceAmount:EMP
+        resourceAmount_setValue:5
+
+        [hiddenAction_EMP_decrease]
+        autoTrigger:if self.resource(greaterThan=1,type='EMP')
+        addResources:EMP=-1
+
+        [hiddenAction_EMP_deactivate]
+        autoTrigger:if self.resource(greaterThan=0,lessThan=2,type='EMP')
+        resourceAmount:EMP
+        resourceAmount_setValue:0
+        resetUnitStats:true
+
+        [resource_抛锚可见]
+        hidden:false
+        displayName:抛锚可见
+        displayColor:#FFFFFF
+
+        [resource_小导弹]
+        displayName:小导弹
+
+        [resource_大导弹]
+        displayName:大导弹
+
+        [resource_全打击]
+        displayName:全打击
+
+        [global_resource_定位加入]
+        hidden:true
+
+        [global_resource_开火]
+        hidden:true
+        displayName:开火
+
+        [global_resource_开始供应]
+        hidden:true
+        displayName:开始供应
+        
+        [resource_Po]
+        hidden:false
+        displayName:Po
+#UNIT DECALS
+    [decal_selected]
+    image: ROOT:assets/ui/decals/select_indicator.png
+    onlyWhenSelectedByAnyPlayer: true
+    imageScale: ${core.radius}*0.003
+    alwaysStartDirAtZero: true
+    layer: shadow
 
 [resource_indirectKills]
 displayName: Indirect Kills
@@ -270,7 +464,6 @@ hidden: false
 priority: 1
 displayColor: red
 
-[template_commonEffects]
 [effect_spawnEffect]
 life: 50
 stripIndex: explode_big
@@ -292,7 +485,7 @@ physics: true
 xSpeedRelativeRandom: 0.5
 ySpeedRelativeRandom: 0.5
 hSpeed: 1
-image: ROOT:/ASSETS/images/particles/spittle_particle.png
+image: ROOT:assets/particles/spittle_particle.png
 priority: verylow
 
 [effect_spittle2]
@@ -302,7 +495,7 @@ physics: true
 xSpeedRelativeRandom: 1.5
 ySpeedRelativeRandom: 1.5
 hSpeed: 2
-image: ROOT:/ASSETS/images/particles/spittle_particle.png
+image: ROOT:assets/particles/spittle_particle.png
 priority: high
 
 [effect_hitLightFlash]
@@ -322,47 +515,47 @@ life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/air_bug_dead.ogg:0.6
+alsoPlaySound: ROOT:assets/sounds/air_bug_dead.ogg:0.6
 
 [effect_bigDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/big_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/big_bug_dead.ogg
 
 [effect_monsterDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/monster_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/monster_bug_dead.ogg
 
 [effect_spitterDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/spitter_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/spitter_bug_dead.ogg
 
 [effect_queenDeath]
 life: 0
 spawnChance: 1
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/queen_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/queen_bug_dead.ogg
 
 [effect_smallDeath]
 life: 0
 spawnChance: 0.6
 fadeInTime: 0
 fadeOut: false
-alsoPlaySound: ROOT:/ASSETS/sounds/small_bug_dead.ogg
+alsoPlaySound: ROOT:assets/sounds/small_bug_dead.ogg
 
 [resource_localCrystal]
 displayName: Crystal
 displayColor: #7fff00
-equivalentGlobalResourceForAI: crystalline
+equivalentGlobalResourceForAI: minerals
 
 [projectile_NULL]
 directDamage:0

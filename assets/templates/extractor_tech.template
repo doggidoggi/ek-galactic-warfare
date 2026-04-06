@@ -1,0 +1,42 @@
+[core]
+autoTriggerCooldownTime: 40
+@memory prod1inc: boolean
+@memory prod2inc: boolean
+@memory prod3inc: boolean
+updateUnitMemory: """
+  prod1inc=true,
+  prod2inc=true,
+  prod3inc=true
+"""
+
+# [hiddenAction_boost1]
+# autoTrigger: if self.globalTeamTags(includes='${tech_prod1}')
+# addResourcesWithLogic: cash=${core.income*0.25}
+# alsoTriggerAction: income1
+# [hiddenAction_boost2]
+# autoTrigger: if self.globalTeamTags(includes='${tech_prod2}')
+# addResourcesWithLogic: cash=${core.income*0.5}
+# alsoTriggerAction: income2
+# [hiddenAction_boost3]
+# autoTrigger: if self.globalTeamTags(includes='${tech_prod3}')
+# addResourcesWithLogic: cash=${core.income*0.75}
+# alsoTriggerAction: income3
+
+[hiddenAction_income1]
+showMessageToAllPlayers: %{memory.prod1inc}
+addResourcesWithLogic: creditsNet=select(memory.prod1inc==true,0,${core.income*0.25})
+alsoTriggerAction: stop1
+[hiddenAction_stop1]
+setUnitMemory: prod1inc=false
+[hiddenAction_income2]
+showMessageToAllPlayers:%{memory.prod2inc}
+addResourcesWithLogic: creditsNet=select(memory.prod2inc==true,0,${core.income*0.5})
+alsoTriggerAction: stop2
+[hiddenAction_stop2]
+setUnitMemory: prod2inc=false
+[hiddenAction_income3]
+showMessageToAllPlayers: %{memory.prod3inc}
+addResourcesWithLogic: creditsNet=select(memory.prod3inc,0,${core.income*0.75})
+alsoTriggerAction: stop3
+[hiddenAction_stop3]
+setUnitMemory: prod3inc=false

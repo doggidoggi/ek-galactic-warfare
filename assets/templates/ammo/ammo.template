@@ -1,0 +1,59 @@
+[template_ammo]
+image:ROOT:assets/projectiles/tracer_shot.png
+directDamage:1
+areaDamage:0
+armourIgnoreAmount:15
+areaRadius:8
+targetGround:true
+targetGroundSpread:4
+trailEffect:CUSTOM:bulletTrail
+trailEffectRate:0.1
+life: 200
+speed: 29
+frame: 1
+drawSize: 0.65
+lightColor:#ff9600
+lightSize:0.8
+areaHitAirAndLandAtSameTime:true
+
+[template_rocket]
+image:ROOT:assets/projectiles/strike_missile.png
+directDamage:1
+life:150
+speed:0.2
+targetSpeed:6
+trailEffect:true
+autoTargetingOnDeadTarget:true
+drawSize:1.1
+largeHitEffect:true
+lightColor:#ffe92b
+lightSize:1
+initialUnguidedSpeedHeight:0.5
+initialUnguidedSpeedY:-0.5
+
+[template_damage_ammo]
+life:0
+speed:0
+directDamage:0
+explodeEffect:NONE
+explodeOnEndOfLife:true
+
+[projectile_none]
+life:0
+directDamage:0
+
+[effect_bulletTrail]
+life: 20
+image: ROOT:assets/graphicsEffects/trail2.png
+color: #CCCCDD
+priority: veryhigh
+attachedToUnit: false
+atmospheric: false
+physics: false
+physicsGravity: 0
+xOffsetRelative: 0
+yOffsetRelative: 0
+xSpeedRelative: 0
+ySpeedRelative: 0
+scaleFrom: 0.1
+scaleTo: 0.15

@@ -1,0 +1,61 @@
+[core]
+copyFrom: autoBuild.template
+buildSpeed: 0.0001
+
+[template_buildAction]
+produceUnits: ${unit}(copyWaypointsFrom=self)
+textAddUnitName: ${unit}
+descriptionAddFromUnit: ${unit}
+descriptionAddUnitStats: ${unit}
+unitShownInUI: ${unit}
+isVisible: true
+alsoTriggerAction:${unit}2
+alsoTriggerOrQueueActionConditional:if memory.recursiveBuild == true and self.hasResources(cash=${section.price})
+
+[template_landFacBuildActionBase]
+@copyFromSection: template_buildAction
+
+[template_requeueCostResourceAction]
+buildSpeed:0s
+highPriorityQueue: true
+isVisible: false
+alsoQueueAction:${unit}
+
+[hiddenAction_boostProd1]
+autoTrigger:if self.globalTeamTags(includes="${tech_nano1}")
+setUnitStats:nanoFactorySpeed=1.25
+
+[hiddenAction_boostProd2]
+autoTrigger:if self.globalTeamTags(includes="${tech_nano2}")
+setUnitStats:nanoFactorySpeed=2.5
+
+[hiddenAction_boostProd3]
+autoTrigger:if self.globalTeamTags(includes="${tech_nano3}")
+setUnitStats:nanoFactorySpeed=3.5
+
+[attack]
+canAttack: false
+canAttackFlyingUnits: false
+canAttackLandUnits:   false
+canAttackUnderwaterUnits: false
+maxAttackRange: 0
+
+[movement]
+movementType: NONE
+moveSpeed: 0
+moveAccelerationSpeed: 0.01
+moveDecelerationSpeed: 0.01
+maxTurnSpeed: 0
+turnAcceleration: 0.1
+
+[ai]
+buildPriority: 0.7
+noneInBaseExtraPriority: 0.1
+noneGlobalExtraPriority: 1
+maxEachBase: 3
+recommendedInEachBasePriorityIfUnmet: 0.8
+recommendedInEachBaseNum: 2
+
+[graphics]
+shadowOffsetX:1
+shadowOffsetY:1
